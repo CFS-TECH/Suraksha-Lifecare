@@ -102,18 +102,18 @@ const Blog = () => {
 
             <div className={styles.heroBadges}>
               <div className={styles.heroBadgeItem}>
-                <Users size={16} />
-                <span><strong>10K+</strong> Weekly Readers</span>
+                <Users size={14} />
+                <span><strong>10K+</strong> <span className={styles.desktopText}>Weekly </span>Readers</span>
               </div>
               <div className={styles.heroBadgeDivider}></div>
               <div className={styles.heroBadgeItem}>
-                <ShieldCheck size={16} />
-                <span><strong>Verified</strong> Medically Audited</span>
+                <ShieldCheck size={14} />
+                <span><strong className={styles.desktopText}>Verified </strong><strong>Medically</strong> Audited</span>
               </div>
               <div className={styles.heroBadgeDivider}></div>
               <div className={styles.heroBadgeItem}>
-                <TrendingUp size={16} />
-                <span><strong>50+</strong> Expert Articles</span>
+                <TrendingUp size={14} />
+                <span><strong>50+</strong> <span className={styles.desktopText}>Expert </span>Articles</span>
               </div>
             </div>
           </div>
