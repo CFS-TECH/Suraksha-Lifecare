@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Clock, ArrowRight, Tag, BookOpen, TrendingUp, Users, ShieldCheck } from 'lucide-react';
+import { Clock, ArrowRight, Tag, BookOpen, TrendingUp, Users, ShieldCheck, Search } from 'lucide-react';
 import styles from './Blog.module.css';
 
 const categories = ['All', 'Elder Care', 'Nursing', 'Physiotherapy', 'Wellness', 'Tips & Guides'];
@@ -69,10 +69,16 @@ const blogPosts = [
 
 const Blog = () => {
   const [activeCategory, setActiveCategory] = useState('All');
+  const [searchQuery, setSearchQuery] = useState('');
 
-  const filteredPosts = activeCategory === 'All'
-    ? blogPosts
-    : blogPosts.filter(post => post.category === activeCategory);
+  const filteredPosts = blogPosts.filter(post => {
+    const matchesCategory = activeCategory === 'All' || post.category === activeCategory;
+    const matchesSearch = searchQuery === '' || 
+      post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      post.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      post.category.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
 
   const featuredPost = blogPosts.find(post => post.featured);
   const regularPosts = filteredPosts.filter(post => !post.featured);
@@ -121,22 +127,27 @@ const Blog = () => {
 
             <div className={styles.heroRight}>
               <div className={styles.interactivePanel}>
-                {/* Floating Card 1: Trending Article Preview */}
-                <div className={`${styles.floatingCard} ${styles.articleCard}`}>
+                {/* Floating Card 1: Interactive Search Panel */}
+                <div className={`${styles.floatingCard} ${styles.searchCard}`}>
                   <div className={styles.cardGlow}></div>
-                  <div className={styles.miniPostHeader}>
-                    <span className={styles.miniTag}>Trending</span>
-                    <span className={styles.miniTime}>5 min read</span>
+                  <h4 className={styles.searchCardTitle}>Search Articles</h4>
+                  <p className={styles.searchCardDesc}>Find expert medical tips, care guides, and wellness posts.</p>
+                  <div className={styles.searchField}>
+                    <input 
+                      type="text" 
+                      placeholder="Search topics, care tips..." 
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                    />
+                    <button className={styles.searchIconBtn}>
+                      <Search size={16} />
+                    </button>
                   </div>
-                  <h4 className={styles.miniTitle}>Post-Surgical Recovery Care at Home</h4>
-                  <p className={styles.miniDesc}>Reducing hospital readmission risks by up to 40% with specialized clinical nursing care...</p>
-                  <div className={styles.miniAuthor}>
-                    <div className={styles.avatar}>DR</div>
-                    <div className={styles.avatarInfo}>
-                      <h5>Dr. Rahul Sharma</h5>
-                      <p>Chief Medical Advisor</p>
-                    </div>
-                  </div>
+                  {searchQuery && (
+                    <button className={styles.clearSearchBtn} onClick={() => setSearchQuery('')}>
+                      Clear Search
+                    </button>
+                  )}
                 </div>
 
                 {/* Floating Card 2: Interactive Topics Cloud */}
@@ -168,7 +179,7 @@ const Blog = () => {
       </section>
 
       {/* Featured Post */}
-      {featuredPost && activeCategory === 'All' && (
+      {featuredPost && activeCategory === 'All' && searchQuery === '' && (
         <section className={styles.featuredSection}>
           <div className={styles.container}>
             <div className={styles.featuredCard}>

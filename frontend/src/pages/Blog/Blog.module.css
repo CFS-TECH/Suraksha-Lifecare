@@ -240,12 +240,14 @@
               inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
-.articleCard {
+.searchCard {
   width: 320px;
   top: 30px;
   left: 20px;
   z-index: 5;
   animation: float1 6s ease-in-out infinite;
+  display: flex;
+  flex-direction: column;
 }
 
 .cardGlow {
@@ -259,77 +261,91 @@
   pointer-events: none;
 }
 
-.miniPostHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.8rem;
-}
-
-.miniTag {
-  background: rgba(92, 224, 214, 0.12);
-  color: #5CE0D6;
-  padding: 3px 8px;
-  border-radius: 6px;
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.miniTime {
-  color: #64748b;
-  font-size: 0.75rem;
-}
-
-.miniTitle {
+.searchCardTitle {
   color: white;
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   font-weight: 700;
-  margin: 0 0 0.5rem 0;
+  margin: 0 0 0.4rem 0;
+}
+
+.searchCardDesc {
+  color: #94a3b8;
+  font-size: 0.8rem;
+  margin: 0 0 1.2rem 0;
   line-height: 1.4;
 }
 
-.miniDesc {
-  color: #94a3b8;
-  font-size: 0.8rem;
-  line-height: 1.45;
-  margin: 0 0 1rem 0;
-}
-
-.miniAuthor {
+.searchField {
   display: flex;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 0.2rem 0.2rem 0.2rem 0.8rem;
   align-items: center;
-  gap: 10px;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  padding-top: 0.8rem;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.avatar {
-  width: 28px;
-  height: 28px;
-  background: linear-gradient(135deg, #009A9F 0%, #004244 100%);
+.searchField:focus-within {
+  border-color: #5CE0D6;
+  box-shadow: 0 0 10px rgba(92, 224, 214, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.searchField input {
+  flex: 1;
+  border: none;
+  background: transparent;
   color: white;
-  border-radius: 50%;
+  font-size: 0.85rem;
+  outline: none;
+  padding: 0;
+}
+
+.searchField input::placeholder {
+  color: #64748b;
+}
+
+.searchIconBtn {
+  background: #0ca39a;
+  color: white;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  margin-left: 0.5rem;
+}
+
+.searchIconBtn:hover {
+  background: #5CE0D6;
+  color: #050d18;
+}
+
+.clearSearchBtn {
+  background: transparent;
+  color: #ff4d4d;
+  border: none;
   font-size: 0.75rem;
-  font-weight: 700;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.avatarInfo h5 {
-  color: white;
-  font-size: 0.78rem;
-  margin: 0;
   font-weight: 600;
+  margin-top: 0.75rem;
+  cursor: pointer;
+  display: block;
+  align-self: flex-start;
+  padding: 0;
+  transition: all 0.3s ease;
 }
 
-.avatarInfo p {
-  color: #64748b;
-  font-size: 0.65rem;
-  margin: 0;
+.clearSearchBtn:hover {
+  color: #ff3333;
+  text-decoration: underline;
 }
 
 .topicsCard {
