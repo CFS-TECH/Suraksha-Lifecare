@@ -689,6 +689,11 @@
   .specialtiesHeader {
     margin-bottom: 2rem !important;
   }
+  .specialtiesTitle {
+    font-size: 1.35rem !important;
+    line-height: 1.3 !important;
+    letter-spacing: -0.3px !important;
+  }
 }
 
 /* Online Consultation Concerns Section */
