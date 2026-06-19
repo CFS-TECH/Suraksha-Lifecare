@@ -513,9 +513,25 @@
     height: 12px !important;
   }
   .heroTitle {
-    font-size: 1.65rem !important;
-    letter-spacing: -0.5px !important;
-    line-height: 1.2 !important;
+    font-size: 1.25rem !important;
+    font-weight: 500 !important;
+    color: #CBD5E1 !important;
+    line-height: 1.3 !important;
+    letter-spacing: -0.2px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    margin-bottom: 1rem !important;
+  }
+  .gradientText {
+    font-size: 1.9rem !important;
+    font-weight: 800 !important;
+    color: #00D2D8 !important;
+    margin-top: 0.3rem !important;
+    display: block !important;
+    background: linear-gradient(135deg, #00F2FE 0%, #009A9F 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
   }
   .heroSubtitle {
     display: none !important;
@@ -524,30 +540,37 @@
     display: none !important;
   }
   .heroBadges {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
     display: flex !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    gap: 0.5rem 1rem !important; /* Spacing between wrapped items */
-    padding: 0.75rem 1rem !important;
-    border-radius: 14px !important;
-    margin-top: 0.25rem !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
     width: 100% !important;
-    max-width: 100% !important;
+    margin-top: 0.5rem !important;
+    padding: 0 !important;
     box-sizing: border-box !important;
   }
   .heroBadgeItem {
-    font-size: 0.72rem !important;
-    gap: 5px !important;
-    white-space: nowrap !important; /* Prevent text clipping/wrapping inside badge item */
+    font-size: 0.76rem !important;
+    padding: 0.45rem 1rem !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 50px !important;
     display: inline-flex !important;
     align-items: center !important;
+    gap: 6px !important;
+    width: fit-content !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important;
   }
   .heroBadgeItem svg {
     width: 13px !important;
     height: 13px !important;
   }
   .heroBadgeDivider {
-    display: none !important; /* Hide divider lines on mobile/tablet viewports to prevent wrapping layout bugs */
+    display: none !important;
   }
 
   /* — Featured Post — */
@@ -652,7 +675,10 @@
 
 @media (max-width: 480px) {
   .heroTitle {
-    font-size: 1.4rem !important;
+    font-size: 1.15rem !important;
+  }
+  .gradientText {
+    font-size: 1.6rem !important;
   }
   .postImageWrap {
     width: 95px !important;
