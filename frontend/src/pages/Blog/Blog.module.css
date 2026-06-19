@@ -3,6 +3,10 @@
   width: 100%;
 }
 
+.desktopBreak {
+  display: block;
+}
+
 /* ===== Blog Hero ===== */
 .heroSection {
   background: linear-gradient(145deg, #0d2d44 0%, #1A4B6E 35%, #154060 65%, #0a1f30 100%);
@@ -514,6 +518,9 @@
     line-height: 1.2 !important;
   }
   .heroSubtitle {
+    display: none !important;
+  }
+  .desktopBreak {
     display: none !important;
   }
   .heroBadges {
