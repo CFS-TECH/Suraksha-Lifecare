@@ -159,7 +159,7 @@ const PlansCarousel = () => {
                 <h3 className={styles.cardTitle}>{plan.title}</h3>
                 <p className={styles.cardDesc}>{plan.desc}</p>
                 <div className={styles.cardFooter}>
-                  <span>
+                  <span className={styles.cardFooterBtn}>
                     <span className={styles.desktopText}>Book Plan</span>
                     <span className={styles.mobileText}>Book</span>
                   </span>
