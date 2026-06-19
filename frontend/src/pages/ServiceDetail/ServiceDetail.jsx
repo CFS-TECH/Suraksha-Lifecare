@@ -155,7 +155,7 @@ const ServiceDetail = () => {
                 <div className={styles.specialtyCard} onClick={triggerWhatsAppBooking}>
                   <div className={styles.specialtyImgWrap}>
                     <img 
-                      src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=600&q=80" 
+                      src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600&q=80" 
                       alt="Dentist" 
                       className={styles.specialtyImage}
                     />
@@ -171,7 +171,7 @@ const ServiceDetail = () => {
                 <div className={styles.specialtyCard} onClick={triggerWhatsAppBooking}>
                   <div className={styles.specialtyImgWrap}>
                     <img 
-                      src="https://images.unsplash.com/photo-1579684389782-64d84b5e901a?w=600&q=80" 
+                      src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&q=80" 
                       alt="Gynecologist/Obstetrician" 
                       className={styles.specialtyImage}
                     />
@@ -203,7 +203,7 @@ const ServiceDetail = () => {
                 <div className={styles.specialtyCard} onClick={triggerWhatsAppBooking}>
                   <div className={styles.specialtyImgWrap}>
                     <img 
-                      src="https://images.unsplash.com/photo-1622960206509-796760b1172f?w=600&q=80" 
+                      src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&q=80" 
                       alt="Pediatrician" 
                       className={styles.specialtyImage}
                     />
@@ -219,7 +219,7 @@ const ServiceDetail = () => {
                 <div className={styles.specialtyCard} onClick={triggerWhatsAppBooking}>
                   <div className={styles.specialtyImgWrap}>
                     <img 
-                      src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&q=80" 
+                      src="https://images.unsplash.com/photo-1527689368864-3a821dbccc34?w=600&q=80" 
                       alt="Sexologist" 
                       className={styles.specialtyImage}
                     />
