@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ClipboardList, Send } from 'lucide-react';
+import { API_URL } from '../../config';
 import styles from './BookingForm.module.css';
 
 const WHATSAPP_NUMBER = '919990782525';
@@ -31,7 +32,7 @@ const BookingForm = ({ serviceName, onSuccess, isCard = true }) => {
 
     // Attempt to save to backend database
     try {
-      const response = await fetch('http://localhost:5000/api/inquiries', {
+      const response = await fetch(`${API_URL}/api/inquiries`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
