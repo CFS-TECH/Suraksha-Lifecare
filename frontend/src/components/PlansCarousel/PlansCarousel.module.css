@@ -504,7 +504,7 @@
     display: none;
   }
   .cardFooterBtn {
-    width: 100% !important;
+    width: 85% !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -512,8 +512,8 @@
     color: #ffffff !important;
     border: none !important;
     padding: 0.45rem 0 !important;
-    max-width: 110px !important;
-    border-radius: 30px !important;
+    max-width: none !important;
+    border-radius: 8px !important;
     font-weight: 800 !important;
     font-size: 0.65rem !important;
     text-transform: uppercase !important;
@@ -600,8 +600,9 @@
   .cardFooterBtn {
     font-size: 0.6rem !important;
     padding: 0.35rem 0 !important;
-    max-width: 95px !important;
-    border-radius: 30px !important;
+    width: 85% !important;
+    max-width: none !important;
+    border-radius: 8px !important;
     background-color: var(--plan-theme-color) !important;
     color: #ffffff !important;
     border: none !important;
