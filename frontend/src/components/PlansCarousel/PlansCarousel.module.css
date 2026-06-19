@@ -513,7 +513,7 @@
     border: none !important;
     padding: 0.45rem 0 !important;
     max-width: 110px !important;
-    border-radius: 6px !important;
+    border-radius: 30px !important;
     font-weight: 800 !important;
     font-size: 0.65rem !important;
     text-transform: uppercase !important;
@@ -601,7 +601,7 @@
     font-size: 0.6rem !important;
     padding: 0.35rem 0 !important;
     max-width: 95px !important;
-    border-radius: 6px !important;
+    border-radius: 30px !important;
     background-color: var(--plan-theme-color) !important;
     color: #ffffff !important;
     border: none !important;
