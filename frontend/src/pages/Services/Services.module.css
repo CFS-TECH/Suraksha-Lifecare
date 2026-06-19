@@ -1,0 +1,38 @@
+.servicesLayout {
+  display: flex;
+  flex-direction: column;
+}
+
+.sectionHero {
+  order: 1;
+}
+
+.sectionPlans {
+  order: 2;
+}
+
+.sectionServices {
+  order: 3;
+}
+
+.sectionConcerns {
+  order: 4;
+}
+
+.sectionEquipment {
+  order: 5;
+}
+
+.sectionWhyChooseUs {
+  order: 6;
+}
+
+@media (max-width: 768px) {
+  .sectionServices {
+    order: 2;
+  }
+  
+  .sectionPlans {
+    order: 3;
+  }
+}
