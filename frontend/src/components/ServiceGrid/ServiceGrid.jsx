@@ -25,6 +25,7 @@ const otherServices = [
   { id: 1, title: "Patient Care at Home", icon: <HeartHandshake size={26} />, desc: "Hospital-grade daily bedridden & recovery assistance.", color: "#1A4B6E" },
   { id: 2, title: "Nursing Care at Home", icon: <HeartPulse size={26} />, desc: "ICU critical care & clinical nursing at home.", color: "#009A9F" },
   { id: 3, title: "Physiotherapy at Home", icon: <Activity size={26} />, desc: "Neuro & ortho rehabilitation programs.", color: "#10B981" },
+  { id: 4, title: "Blood Sample Collection at Home", icon: <Droplet size={26} />, desc: "Hygienic & safe blood sample collection at home.", color: "#EF4444" },
   { id: 5, title: "Elder Care at Home", icon: <Users size={26} />, desc: "Companion care & monitoring.", color: "#E28743" },
   { id: 6, title: "Doctor Visit at Home", icon: <Stethoscope size={26} />, desc: "Qualified home physicians.", color: "#009A9F" },
   { id: 7, title: "Recovery Care at Home", icon: <ShieldCheck size={26} />, desc: "Post-hospital transition support.", color: "#1A4B6E" },
@@ -43,6 +44,7 @@ const serviceSlugMap = {
   "Patient Care at Home": "patient-care",
   "Nursing Care at Home": "nursing-care",
   "Physiotherapy at Home": "physiotherapy",
+  "Blood Sample Collection at Home": "lab-tests",
   "Elder Care at Home": "elder-care",
   "Doctor Visit at Home": "doctor-consultation",
   "Recovery Care at Home": "patient-care",
@@ -94,6 +96,18 @@ const MedicalIcon = ({ id, className }) => {
           <path d="M44 26l-3-3m0 0h4m-4 0v4" />
           <path d="M24 12v4M18 15l3 3M34 15l-3 3" />
           <path d="M8 54h12l3-6 4 10 3-7 2 3h24" />
+        </svg>
+      );
+    case 4: // Blood Sample Collection
+      return (
+        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className={className}>
+          <rect x="26" y="10" width="12" height="34" rx="6" />
+          <path d="M24 10h16" />
+          <path d="M26 28h12" />
+          <path d="M26 36h12v2a6 6 0 0 1-12 0v-2z" fill="currentColor" fillOpacity="0.15" />
+          <path d="M44 32c-3 0-5.5 2.5-5.5 5.5S41 43 44 43s5.5-2 5.5-5.5S47 32 44 32z" fill="currentColor" fillOpacity="0.08" />
+          <path d="M44 32c-3 0-5.5 2.5-5.5 5.5S41 43 44 43s5.5-2 5.5-5.5S47 32 44 32z" strokeWidth="1" />
+          <path d="M8 32h10l3-6 4 12 3-8 2 2h8" strokeWidth="1" strokeDasharray="2 2" />
         </svg>
       );
     case 5: // Elder Care
