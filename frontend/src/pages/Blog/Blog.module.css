@@ -1,3 +1,8 @@
+.pageWrapper {
+  overflow-x: hidden !important;
+  width: 100%;
+}
+
 /* ===== Blog Hero ===== */
 .heroSection {
   background: linear-gradient(145deg, #0d2d44 0%, #1A4B6E 35%, #154060 65%, #0a1f30 100%);
@@ -512,23 +517,30 @@
     display: none !important;
   }
   .heroBadges {
+    display: flex !important;
     flex-wrap: wrap !important;
     justify-content: center !important;
-    gap: 0.75rem !important;
+    gap: 0.5rem 1rem !important; /* Spacing between wrapped items */
     padding: 0.75rem 1rem !important;
     border-radius: 14px !important;
     margin-top: 0.25rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
   .heroBadgeItem {
-    font-size: 0.7rem !important;
+    font-size: 0.72rem !important;
     gap: 5px !important;
+    white-space: nowrap !important; /* Prevent text clipping/wrapping inside badge item */
+    display: inline-flex !important;
+    align-items: center !important;
   }
   .heroBadgeItem svg {
     width: 13px !important;
     height: 13px !important;
   }
   .heroBadgeDivider {
-    height: 20px !important;
+    display: none !important; /* Hide divider lines on mobile/tablet viewports to prevent wrapping layout bugs */
   }
 
   /* — Featured Post — */

@@ -78,7 +78,7 @@ const Blog = () => {
   const regularPosts = filteredPosts.filter(post => !post.featured);
 
   return (
-    <div className="animate-fade-in">
+    <div className={`${styles.pageWrapper} animate-fade-in`}>
       {/* Hero Section */}
       <section className={styles.heroSection}>
         <div className={styles.bgGlows}>
