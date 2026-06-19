@@ -683,6 +683,12 @@
   .specialtiesGrid {
     grid-template-columns: 1fr;
   }
+  .specialtiesSub {
+    display: none !important;
+  }
+  .specialtiesHeader {
+    margin-bottom: 2rem !important;
+  }
 }
 
 /* Online Consultation Concerns Section */
