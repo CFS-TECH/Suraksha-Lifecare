@@ -89,6 +89,9 @@ const PlansCarousel = () => {
   };
 
   useEffect(() => {
+    // Only enable auto-scroll on desktop screens to avoid running idle loops on mobile grid layouts
+    if (window.innerWidth <= 768) return;
+
     const interval = setInterval(() => {
       scroll('right');
     }, 4500);
