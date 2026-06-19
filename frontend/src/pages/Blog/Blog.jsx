@@ -88,32 +88,79 @@ const Blog = () => {
         </div>
 
         <div className={styles.container}>
-          <div className={styles.heroCentered}>
-            <span className={styles.topTag}>
-              <BookOpen size={14} />
-              Health & Wellness Blog
-            </span>
-            <h1 className={styles.heroTitle}>
-              Insights for Better <br className={styles.desktopBreak} /> <span className={styles.gradientText}>Home Healthcare</span>
-            </h1>
-            <p className={styles.heroSubtitle}>
-              Expert medical articles, caregiving tips, and wellness guides curated by our team of doctors and specialists.
-            </p>
+          <div className={styles.heroGrid}>
+            <div className={styles.heroLeft}>
+              <span className={styles.topTag}>
+                <BookOpen size={14} />
+                Health & Wellness Blog
+              </span>
+              <h1 className={styles.heroTitle}>
+                Insights for Better <br className={styles.desktopBreak} /> <span className={styles.gradientText}>Home Healthcare</span>
+              </h1>
+              <p className={styles.heroSubtitle}>
+                Expert medical articles, caregiving tips, and wellness guides curated by our team of doctors and specialists.
+              </p>
 
-            <div className={styles.heroBadges}>
-              <div className={styles.heroBadgeItem}>
-                <Users size={14} />
-                <span><strong>10K+</strong> <span className={styles.desktopText}>Weekly </span>Readers</span>
+              <div className={styles.heroBadges}>
+                <div className={styles.heroBadgeItem}>
+                  <Users size={14} />
+                  <span><strong>10K+</strong> <span className={styles.desktopText}>Weekly </span>Readers</span>
+                </div>
+                <div className={styles.heroBadgeDivider}></div>
+                <div className={styles.heroBadgeItem}>
+                  <ShieldCheck size={14} />
+                  <span><strong className={styles.desktopText}>Verified </strong><strong>Medically</strong> Audited</span>
+                </div>
+                <div className={styles.heroBadgeDivider}></div>
+                <div className={styles.heroBadgeItem}>
+                  <TrendingUp size={14} />
+                  <span><strong>50+</strong> <span className={styles.desktopText}>Expert </span>Articles</span>
+                </div>
               </div>
-              <div className={styles.heroBadgeDivider}></div>
-              <div className={styles.heroBadgeItem}>
-                <ShieldCheck size={14} />
-                <span><strong className={styles.desktopText}>Verified </strong><strong>Medically</strong> Audited</span>
-              </div>
-              <div className={styles.heroBadgeDivider}></div>
-              <div className={styles.heroBadgeItem}>
-                <TrendingUp size={14} />
-                <span><strong>50+</strong> <span className={styles.desktopText}>Expert </span>Articles</span>
+            </div>
+
+            <div className={styles.heroRight}>
+              <div className={styles.interactivePanel}>
+                {/* Floating Card 1: Trending Article Preview */}
+                <div className={`${styles.floatingCard} ${styles.articleCard}`}>
+                  <div className={styles.cardGlow}></div>
+                  <div className={styles.miniPostHeader}>
+                    <span className={styles.miniTag}>Trending</span>
+                    <span className={styles.miniTime}>5 min read</span>
+                  </div>
+                  <h4 className={styles.miniTitle}>Post-Surgical Recovery Care at Home</h4>
+                  <p className={styles.miniDesc}>Reducing hospital readmission risks by up to 40% with specialized clinical nursing care...</p>
+                  <div className={styles.miniAuthor}>
+                    <div className={styles.avatar}>DR</div>
+                    <div className={styles.avatarInfo}>
+                      <h5>Dr. Rahul Sharma</h5>
+                      <p>Chief Medical Advisor</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Floating Card 2: Interactive Topics Cloud */}
+                <div className={`${styles.floatingCard} ${styles.topicsCard}`}>
+                  <h4>Popular Topics</h4>
+                  <div className={styles.topicsCloud}>
+                    <span className={styles.topicChip}>#ElderCare</span>
+                    <span className={styles.topicChip}>#Nursing</span>
+                    <span className={styles.topicChip}>#Physiotherapy</span>
+                    <span className={styles.topicChip}>#PostOpCare</span>
+                    <span className={styles.topicChip}>#DietGuide</span>
+                  </div>
+                </div>
+
+                {/* Floating Card 3: Trust Badge */}
+                <div className={`${styles.floatingCard} ${styles.trustCard}`}>
+                  <div className={styles.shieldPulse}>
+                    <ShieldCheck size={20} className={styles.shieldIcon} />
+                  </div>
+                  <div className={styles.trustText}>
+                    <h5>NABL Accredited</h5>
+                    <p>Clinical Protocols</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
