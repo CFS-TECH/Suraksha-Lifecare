@@ -156,6 +156,9 @@ const PlansCarousel = () => {
               </div>
               
               <div className={styles.cardContent}>
+                <div className={styles.mobileIconPlate}>
+                  {renderPlanIcon(plan.id)}
+                </div>
                 <h3 className={styles.cardTitle}>{plan.title}</h3>
                 <p className={styles.cardDesc}>{plan.desc}</p>
                 <div className={styles.cardFooter}>

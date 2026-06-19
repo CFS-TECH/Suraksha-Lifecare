@@ -391,6 +391,10 @@
   display: inline;
 }
 
+.mobileIconPlate {
+  display: none;
+}
+
 /* Footer & View All button */
 .carouselBottom {
   display: flex;
@@ -450,23 +454,72 @@
   }
   .card {
     flex: none !important;
-    max-width: 100% !important;
+    max-width: none !important;
     scroll-snap-align: none;
+    background: #ffffff !important;
+    border-radius: 14px !important;
+    border: 1.5px solid rgba(226, 232, 240, 0.9) !important;
+    box-shadow: 0 4px 12px rgba(26, 75, 110, 0.03) !important;
+    border-top: 3px solid var(--plan-theme-color) !important;
+    padding: 0.8rem 0.5rem !important;
+    min-height: 145px !important;
+    gap: 0.5rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    position: relative;
+    transition: all 0.2s ease !important;
+  }
+  .card:last-child {
+    grid-column: span 2 !important;
+  }
+  .card:active {
+    transform: scale(0.97) !important;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05) !important;
+  }
+  .imageWrapper {
+    display: none !important;
   }
   .cardContent {
-    padding: 1.25rem;
+    padding: 0.5rem 0.25rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    flex-grow: 1;
+    background: transparent !important;
   }
   .cardTitle {
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
+    font-size: 0.76rem !important;
+    font-weight: 800 !important;
+    line-height: 1.3 !important;
+    min-height: 36px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    color: var(--secondary) !important;
+    margin-bottom: 0.5rem !important;
   }
   .cardDesc {
     display: none;
   }
   .cardFooterBtn {
-    padding: 0.6rem 1.5rem;
-    font-size: 0.85rem;
-    border-radius: 10px;
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: var(--plan-theme-color) !important;
+    color: #ffffff !important;
+    border: none !important;
+    padding: 0.45rem 0 !important;
+    max-width: 110px !important;
+    border-radius: 6px !important;
+    font-weight: 800 !important;
+    font-size: 0.65rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    box-shadow: 0 4px 10px color-mix(in srgb, var(--plan-theme-color) 20%, transparent) !important;
+    transition: all 0.2s ease;
   }
   .viewAllBtn {
     width: 90%;
@@ -477,56 +530,88 @@
     display: none;
   }
   .carouselContainer {
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: space-between !important;
-    gap: 0.75rem !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.8rem !important;
     padding: 1.5rem 1rem !important;
-    overflow-x: hidden !important;
+    overflow-x: visible !important;
     scroll-snap-type: none !important;
   }
-
   .mobileText {
     display: inline !important;
   }
-
   .desktopText {
     display: none !important;
+  }
+  .mobileIconPlate {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50% !important;
+    background-color: color-mix(in srgb, var(--plan-theme-color) 10%, transparent) !important;
+    border: 1px solid color-mix(in srgb, var(--plan-theme-color) 15%, transparent) !important;
+    color: var(--plan-theme-color) !important;
+    margin: 0 auto 0.5rem !important;
   }
 }
 
 @media (max-width: 500px) {
   .card {
-    flex: 1 1 0% !important;
+    padding: 0.8rem 0.5rem !important;
+    border-radius: 14px !important;
+    min-height: 145px !important;
+    gap: 0.5rem !important;
+    border: 1.5px solid rgba(226, 232, 240, 0.9) !important;
+    box-shadow: 0 4px 12px rgba(26, 75, 110, 0.03) !important;
+    background: #ffffff !important;
+    border-top: 3px solid var(--plan-theme-color) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    transition: all 0.2s ease !important;
     max-width: none !important;
-    border-radius: 8px;
-    border: 1px solid #cbd5e1;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+    flex: none !important;
   }
   .imageWrapper {
     display: none !important;
   }
   .cardContent {
-    padding: 0.35rem 0.2rem !important;
-    gap: 0.25rem !important;
+    padding: 0.5rem 0.25rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    flex-grow: 1;
+    background: transparent !important;
   }
   .cardTitle {
-    font-size: 0.52rem !important;
-    min-height: 28px !important;
-    line-height: 1.2;
-    margin-bottom: 0.2rem !important;
-    text-align: center;
-    font-weight: 700;
+    font-size: 0.72rem !important;
+    font-weight: 800 !important;
+    line-height: 1.3 !important;
+    min-height: 36px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    color: var(--secondary) !important;
+    margin-bottom: 0.5rem !important;
   }
   .cardFooterBtn {
-    padding: 0.28rem 0.15rem !important;
-    font-size: 0.48rem !important;
-    border-radius: 4px;
-    letter-spacing: 0.01em !important;
+    font-size: 0.6rem !important;
+    padding: 0.35rem 0 !important;
+    max-width: 95px !important;
+    border-radius: 6px !important;
+    background-color: var(--plan-theme-color) !important;
+    color: #ffffff !important;
+    border: none !important;
+    font-weight: 800 !important;
+    box-shadow: 0 4px 10px color-mix(in srgb, var(--plan-theme-color) 20%, transparent) !important;
   }
   .carouselContainer {
-    gap: 0.25rem !important;
-    padding: 1rem 0.25rem !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.6rem !important;
+    padding: 1rem 0.4rem !important;
   }
   .title {
     font-size: 1.3rem !important;
