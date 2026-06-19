@@ -94,8 +94,7 @@ const Blog = () => {
               Health & Wellness Blog
             </span>
             <h1 className={styles.heroTitle}>
-              Insights for Better <br />
-              <span className={styles.gradientText}>Home Healthcare</span>
+              Insights for Better <span className={styles.gradientText}>Home Healthcare</span>
             </h1>
             <p className={styles.heroSubtitle}>
               Expert medical articles, caregiving tips, and wellness guides curated by our team of doctors and specialists.
