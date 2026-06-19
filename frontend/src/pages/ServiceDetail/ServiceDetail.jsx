@@ -260,7 +260,7 @@ const ServiceDetail = () => {
                     </svg>
                   </div>
                   <h4>Period doubts or Pregnancy</h4>
-                  <div className={styles.concernFee}>₹399 onwards</div>
+                  <div className={styles.concernFee}>₹499 onwards</div>
                   <span className={styles.consultLink}>CONSULT NOW</span>
                 </div>
 
@@ -279,7 +279,7 @@ const ServiceDetail = () => {
                     </svg>
                   </div>
                   <h4>Acne, pimple or skin issues</h4>
-                  <div className={styles.concernFee}>₹349 onwards</div>
+                  <div className={styles.concernFee}>₹449 onwards</div>
                   <span className={styles.consultLink}>CONSULT NOW</span>
                 </div>
 
@@ -294,7 +294,7 @@ const ServiceDetail = () => {
                     </svg>
                   </div>
                   <h4>Performance issues in bed</h4>
-                  <div className={styles.concernFee}>₹499 onwards</div>
+                  <div className={styles.concernFee}>₹599 onwards</div>
                   <span className={styles.consultLink}>CONSULT NOW</span>
                 </div>
 
@@ -307,7 +307,7 @@ const ServiceDetail = () => {
                     </svg>
                   </div>
                   <h4>Cold, cough or fever</h4>
-                  <div className={styles.concernFee}>₹299 onwards</div>
+                  <div className={styles.concernFee}>₹399 onwards</div>
                   <span className={styles.consultLink}>CONSULT NOW</span>
                 </div>
 
@@ -325,7 +325,7 @@ const ServiceDetail = () => {
                     </svg>
                   </div>
                   <h4>Child not feeling well</h4>
-                  <div className={styles.concernFee}>₹399 onwards</div>
+                  <div className={styles.concernFee}>₹499 onwards</div>
                   <span className={styles.consultLink}>CONSULT NOW</span>
                 </div>
 
@@ -339,7 +339,7 @@ const ServiceDetail = () => {
                     </svg>
                   </div>
                   <h4>Depression or anxiety</h4>
-                  <div className={styles.concernFee}>₹499 onwards</div>
+                  <div className={styles.concernFee}>₹599 onwards</div>
                   <span className={styles.consultLink}>CONSULT NOW</span>
                 </div>
               </div>
