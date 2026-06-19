@@ -515,17 +515,22 @@
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    background-color: var(--plan-theme-color) !important;
-    color: #ffffff !important;
-    border: none !important;
+    background-color: transparent !important;
+    color: var(--plan-theme-color) !important;
+    border: 1.5px solid var(--plan-theme-color) !important;
     padding: 0.35rem 0 !important;
     border-radius: 6px !important;
     font-weight: 800 !important;
     font-size: 0.6rem !important;
     text-transform: uppercase !important;
     letter-spacing: 0.05em !important;
-    box-shadow: 0 4px 10px color-mix(in srgb, var(--plan-theme-color) 20%, transparent) !important;
     transition: all 0.2s ease;
+  }
+  .card:hover .cardFooterBtn {
+    background-color: transparent !important;
+    color: var(--plan-theme-color) !important;
+    border-color: var(--plan-theme-color) !important;
+    box-shadow: none !important;
   }
   .viewAllBtn {
     width: 90%;
@@ -615,16 +620,22 @@
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    background-color: var(--plan-theme-color) !important;
-    color: #ffffff !important;
-    border: none !important;
+    background-color: transparent !important;
+    color: var(--plan-theme-color) !important;
+    border: 1.5px solid var(--plan-theme-color) !important;
     padding: 0.35rem 0 !important;
     border-radius: 6px !important;
     font-weight: 800 !important;
     font-size: 0.6rem !important;
     text-transform: uppercase !important;
     letter-spacing: 0.03em !important;
-    box-shadow: 0 4px 10px color-mix(in srgb, var(--plan-theme-color) 20%, transparent) !important;
+    transition: all 0.2s ease;
+  }
+  .card:hover .cardFooterBtn {
+    background-color: transparent !important;
+    color: var(--plan-theme-color) !important;
+    border-color: var(--plan-theme-color) !important;
+    box-shadow: none !important;
   }
   .carouselContainer {
     grid-template-columns: repeat(2, 1fr) !important;
