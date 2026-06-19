@@ -3,6 +3,7 @@
   padding: 1.5rem 0 3rem;
   background-color: #FFFFFF;
   overflow: hidden;
+  scroll-margin-top: 80px; /* Accounts for the sticky header when scrolled from another page or CTA */
 }
 
 /* Background Decorative Elements */

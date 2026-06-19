@@ -278,15 +278,26 @@ const ServiceGrid = () => {
                 key={service.id} 
                 className={styles.otherCard}
                 style={{ '--card-theme-color': service.color }}
-                onClick={() => navigate(`/services/${slug}`)}
+                onClick={(e) => {
+                  // Robust check to avoid triggering page navigation when clicking/tapping the Enquire Now button
+                  if (e.target.closest('button') || e.target.classList.contains(styles.enquireBtn)) {
+                    return;
+                  }
+                  navigate(`/services/${slug}`);
+                }}
               >
                 <div className={styles.cardIconCircle}>
                   <MedicalIcon id={service.id} className={styles.cardIcon} />
                 </div>
                 <h4 className={styles.cardTitle}>{service.title}</h4>
                 <button 
+                  type="button"
                   className={styles.enquireBtn} 
-                  onClick={(e) => handleEnquiryClick(e, service.title)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    handleEnquiryClick(e, service.title);
+                  }}
                   aria-label={`Enquire about ${service.title}`}
                 >
                   Enquire Now

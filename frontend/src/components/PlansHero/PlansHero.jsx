@@ -2,6 +2,13 @@ import React from 'react';
 import styles from './PlansHero.module.css';
 
 const PlansHero = () => {
+  const handleEnquireClick = () => {
+    const element = document.getElementById('booking-form-section');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className={styles.heroSection}>
       <div className={styles.breadcrumbTab}>
@@ -15,7 +22,7 @@ const PlansHero = () => {
           <p className={styles.subtext}>
             Convenient, personalized medical care delivered in the comfort of your home.
           </p>
-          <button className={styles.ctaButton}>Enquire Now</button>
+          <button onClick={handleEnquireClick} className={styles.ctaButton}>Enquire Now</button>
         </div>
       </div>
 

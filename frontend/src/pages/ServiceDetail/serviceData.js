@@ -3,7 +3,6 @@ import nursingCareImg from '../../assets/nursing_care.png';
 import physioImg from '../../assets/physiotherapy.png';
 import elderImg from '../../assets/categories/elder.png';
 import childImg from '../../assets/categories/child.png';
-import diabetesImg from '../../assets/categories/diabetes.png';
 import bpImg from '../../assets/categories/bp.png';
 import essentialsImg from '../../assets/categories/essentials.png';
 import liverImg from '../../assets/categories/liver.png';
