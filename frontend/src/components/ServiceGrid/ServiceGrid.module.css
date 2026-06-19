@@ -1,0 +1,696 @@
+.section {
+  position: relative;
+  padding: 1.5rem 0 3rem;
+  background-color: #FFFFFF;
+  overflow: hidden;
+}
+
+/* Background Decorative Elements */
+.bgElements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.circle1 {
+  position: absolute;
+  top: -10%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(0, 154, 159, 0.05) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.circle2 {
+  position: absolute;
+  bottom: -5%;
+  left: -5%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(26, 75, 110, 0.03) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 5rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 10;
+}
+
+.topTitle {
+  display: inline-block;
+  color: var(--primary);
+  font-weight: 800;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 1.25rem;
+}
+
+.title {
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: var(--secondary);
+  margin-bottom: 1.5rem;
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #55758C;
+  line-height: 1.6;
+}
+
+/* Featured Grid */
+.featuredGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.5rem;
+  margin-bottom: 8rem;
+  position: relative;
+  z-index: 10;
+}
+
+.featuredCard {
+  background: white;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  display: flex;
+  flex-direction: column;
+}
+
+.featuredCard:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 30px 60px rgba(0, 154, 159, 0.12);
+  border-color: rgba(0, 154, 159, 0.25);
+}
+
+.cardImageWrapper {
+  position: relative;
+  width: 100%;
+  height: 230px;
+  overflow: hidden;
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1s cubic-bezier(0.1, 0.8, 0.2, 1);
+}
+
+.featuredCard:hover .cardImage {
+  transform: scale(1.08);
+}
+
+.imageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent 40%, rgba(26, 75, 110, 0.55));
+}
+
+.tag {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  color: var(--primary);
+  padding: 0.5rem 1.2rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 154, 159, 0.1);
+  z-index: 5;
+}
+
+.featuredContent {
+  padding: 2.2rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.featuredTitle {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--secondary);
+  margin-bottom: 0.8rem;
+}
+
+.featuredDesc {
+  font-size: 0.95rem;
+  color: #55758C;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  flex-grow: 1;
+}
+
+.featuredAction {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--primary);
+  font-weight: 800;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.featuredAction:hover {
+  gap: 0.9rem;
+  color: var(--primary-hover);
+}
+
+/* Secondary Section Header Styling */
+.secondaryHeader {
+  text-align: center;
+  margin-top: 2.5rem;
+  margin-bottom: 4.5rem;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.secondaryBadge {
+  display: inline-block;
+  background: rgba(0, 154, 159, 0.06);
+  color: var(--primary);
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding: 0.5rem 1.25rem;
+  border-radius: 100px;
+  border: 1px solid rgba(0, 154, 159, 0.1);
+  margin-bottom: 1.2rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+.secondaryTitle {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--secondary);
+  letter-spacing: -0.8px;
+  margin-bottom: 0.8rem;
+  line-height: 1.2;
+}
+
+.secondarySubtitle {
+  font-size: 1.1rem;
+  color: #55758C;
+  max-width: 650px;
+  margin-bottom: 1.8rem;
+  line-height: 1.6;
+}
+
+.glowDivider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 240px;
+}
+
+.dividerLine {
+  flex-grow: 1;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(0, 154, 159, 0.25), transparent);
+}
+
+.dividerDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: 0 0 10px var(--primary);
+}
+
+/* Secondary Services Grid and Cards */
+.otherGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1.5rem;
+  position: relative;
+  z-index: 10;
+}
+
+.otherCard {
+  position: relative;
+  background: #ffffff;
+  padding: 1.8rem 1.25rem;
+  border-radius: 24px; /* Slightly tighter rounded card corners */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.25rem;
+  justify-content: space-between;
+  min-height: 280px; /* Reduced card height */
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.otherCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 35px rgba(0, 154, 159, 0.08);
+  border-color: rgba(0, 154, 159, 0.2);
+}
+
+.cardIconCircle {
+  width: 80px; /* Reduced from 100px */
+  height: 80px; /* Reduced from 100px */
+  border-radius: 50%;
+  background-color: rgba(0, 154, 159, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  flex-shrink: 0;
+}
+
+.otherCard:hover .cardIconCircle {
+  background-color: #009a9f;
+  box-shadow: 0 6px 15px rgba(0, 154, 159, 0.18);
+  transform: scale(1.03);
+}
+
+.cardIcon {
+  width: 44px; /* Increased from 32px to look more prominent inside the circle */
+  height: 44px; /* Increased from 32px to look more prominent inside the circle */
+  color: #009a9f;
+  transition: all 0.4s ease;
+}
+
+.otherCard:hover .cardIcon {
+  color: #ffffff;
+}
+
+.cardTitle {
+  font-size: 1.05rem; /* Reduced title size */
+  font-weight: 800;
+  color: #1a4b6e;
+  margin: 0;
+  line-height: 1.35;
+  transition: color 0.3s ease;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.otherCard:hover .cardTitle {
+  color: #009a9f;
+}
+
+.enquireBtn {
+  width: 100%;
+  max-width: 150px; /* Reduced width */
+  padding: 0.5rem 0; /* Reduced padding */
+  border-radius: 50px;
+  border: 1.5px solid #009a9f;
+  background-color: transparent;
+  color: #009a9f;
+  font-weight: 700;
+  font-size: 0.82rem; /* Reduced font size */
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+}
+
+.enquireBtn:hover {
+  transform: scale(1.02);
+}
+
+.otherCard:hover .enquireBtn {
+  background-color: #009a9f;
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 154, 159, 0.2);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* Responsive Grid Layout Rules */
+@media (max-width: 1200px) {
+  .featuredGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .section {
+    padding: 3rem 0;
+  }
+  
+  .title {
+    font-size: clamp(2rem, 6vw, 2.6rem);
+    letter-spacing: -0.5px;
+  }
+}
+
+@media (max-width: 768px) {
+  .featuredGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .title {
+    font-size: clamp(1.8rem, 8vw, 2.2rem);
+  }
+
+  .featuredCard {
+    border-radius: 20px;
+  }
+
+  .featuredContent {
+    padding: 1.5rem;
+  }
+  
+  .secondaryHeader {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+  
+  .line {
+    display: none;
+  }
+}
+
+/* Drawer Popup Panel Styling */
+.drawerBackdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.15); /* Lighter dimmed overlay, no blur */
+  z-index: 11000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.drawerOpen {
+  opacity: 1;
+  visibility: visible;
+}
+
+.drawerPanel {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  bottom: 20px;
+  width: calc(100% - 40px);
+  max-width: 370px; /* Reduced from 440px to make it look neat and not too big */
+  background: white;
+  border-radius: 24px; /* Rounded corners on all sides to make it look like a floating card */
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  padding: 2.2rem 1.4rem; /* Snugger padding for a narrower panel */
+  transform: translateX(calc(100% + 40px)); /* Completely offscreen */
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.drawerOpen .drawerPanel {
+  transform: translateX(0);
+}
+
+.drawerCloseBtn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: #64748b;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.drawerCloseBtn:hover {
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
+
+/* Form Styling within Drawer (matches Service Detail page) */
+.bookingCard {
+  background: white;
+  border-radius: 24px;
+}
+
+.formHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 2rem;
+  border-bottom: 1.5px solid rgba(226, 232, 240, 0.8);
+  padding-bottom: 1.25rem;
+}
+
+.formHeaderIcon {
+  color: #009a9f;
+}
+
+.formHeader h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a4b6e;
+  margin: 0;
+}
+
+.formHeader span {
+  font-size: 11px;
+  color: #007e82;
+  font-weight: 600;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 2px;
+}
+
+.bookingForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  text-align: left;
+}
+
+.inputGroup label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #1a4b6e;
+}
+
+.inputGroup input,
+.inputGroup textarea {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  padding: 11px 14px;
+  border-radius: 10px;
+  border: 1.5px solid rgba(226, 232, 240, 0.8);
+  background-color: rgba(244, 248, 250, 0.5);
+  font-size: 13.5px;
+  color: #0f172a;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.inputGroup input:focus,
+.inputGroup textarea:focus {
+  border-color: #009a9f;
+  background-color: white;
+  box-shadow: 0 0 0 3px rgba(0, 154, 159, 0.1);
+}
+
+.disabledInput {
+  background-color: #E2E8F0 !important;
+  color: #64748B !important;
+  font-weight: 600;
+  cursor: not-allowed;
+}
+
+.selectInput {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  padding: 11px 14px;
+  border-radius: 10px;
+  border: 1.5px solid rgba(226, 232, 240, 0.8);
+  background-color: rgba(244, 248, 250, 0.5);
+  font-size: 13.5px;
+  color: #0f172a;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%231a4b6e' stroke-width='2.5'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19.5 8.25l-7.5 7.5-7.5-7.5' /%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1rem;
+  padding-right: 2rem;
+  transition: all 0.2s ease;
+  font-weight: 600;
+}
+
+.selectInput:focus {
+  border-color: #009a9f;
+  background-color: white;
+  box-shadow: 0 0 0 3px rgba(0, 154, 159, 0.1);
+}
+
+.submitButton {
+  color: white;
+  border: none;
+  padding: 13px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(26, 75, 110, 0.15);
+  transition: all 0.3s ease;
+}
+
+.submitButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(26, 75, 110, 0.3);
+}
+
+.statusText {
+  text-align: center;
+  font-size: 12.5px;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+.successStatus {
+  color: #10B981;
+}
+
+.errorStatus {
+  color: #EF4444;
+}
+
+/* Responsive Drawer Styles */
+@media (max-width: 640px) {
+  .drawerPanel {
+    max-width: 100%;
+    padding: 2.5rem 1.5rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .topTitle {
+    display: none !important;
+  }
+  .subtitle {
+    display: none !important;
+  }
+  .header {
+    margin-bottom: 2rem !important;
+  }
+  .title {
+    font-size: 1.55rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  .section {
+    padding: 2.5rem 0 4.5rem !important;
+  }
+  .otherGrid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.6rem !important;
+    padding: 0 0.4rem !important;
+  }
+  .otherCard {
+    padding: 0.8rem 0.5rem !important;
+    border-radius: 14px !important;
+    min-height: 145px !important;
+    gap: 0.5rem !important;
+    border: 1.5px solid rgba(226, 232, 240, 0.9) !important;
+    box-shadow: 0 4px 12px rgba(26, 75, 110, 0.03) !important;
+    background: #ffffff !important;
+    border-top: 3px solid var(--card-theme-color) !important;
+  }
+  .otherCard:active {
+    transform: scale(0.97) !important;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05) !important;
+  }
+  .cardIconCircle {
+    width: 44px !important;
+    height: 44px !important;
+    background-color: color-mix(in srgb, var(--card-theme-color) 10%, transparent) !important;
+    border: 1px solid color-mix(in srgb, var(--card-theme-color) 15%, transparent) !important;
+  }
+  .cardIcon {
+    width: 22px !important;
+    height: 22px !important;
+    color: var(--card-theme-color) !important;
+  }
+  .cardTitle {
+    font-size: 0.72rem !important;
+    font-weight: 800 !important;
+    line-height: 1.3 !important;
+    min-height: 36px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    color: var(--secondary) !important;
+  }
+  .enquireBtn {
+    font-size: 0.6rem !important;
+    padding: 0.35rem 0 !important;
+    max-width: 95px !important;
+    border-radius: 6px !important;
+    background-color: var(--card-theme-color) !important;
+    color: #ffffff !important;
+    border: none !important;
+    font-weight: 800 !important;
+    box-shadow: 0 4px 10px color-mix(in srgb, var(--card-theme-color) 20%, transparent) !important;
+  }
+}

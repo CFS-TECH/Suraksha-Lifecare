@@ -1,0 +1,388 @@
+.section {
+  padding: 5rem 0;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  border-top: 1px solid #e2e8f0;
+  overflow: hidden;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+  padding: 0 2rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.badgeContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #009a9f;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background-color: #E6F9F3;
+  padding: 6px 16px;
+  border-radius: 100px;
+  border: 1.5px solid rgba(0, 154, 159, 0.15);
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1a4b6e;
+  margin: 10px 0 12px 0;
+  letter-spacing: -1px;
+  line-height: 1.15;
+  text-align: center;
+}
+
+.sub {
+  color: #64748b;
+  font-size: 1.15rem;
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.dividerWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-top: 1.25rem;
+  width: 100%;
+}
+
+.glowLine {
+  width: 120px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #009a9f, transparent);
+}
+
+.dividerNode {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #009a9f;
+  border: 2px solid white;
+  position: absolute;
+  box-shadow: 0 0 8px #009a9f;
+}
+
+/* Carousel / Slider Wrapper */
+.carouselWrapper {
+  position: relative;
+  max-width: 1240px;
+  margin: 0 auto;
+  z-index: 1;
+}
+
+.navButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) scale(0.9);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: white;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  color: #1a4b6e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.carouselWrapper:hover .navButton {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(-50%) scale(1);
+}
+
+.navButton:hover {
+  background: #009a9f;
+  color: white;
+  border-color: #009a9f;
+  box-shadow: 0 12px 24px rgba(0, 154, 159, 0.2);
+}
+
+.navLeft {
+  left: -15px;
+}
+
+.navRight {
+  right: -15px;
+}
+
+.sliderWrapper {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 1rem 0.5rem 2.5rem 0.5rem;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+}
+
+.sliderWrapper::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+.concernCard {
+  flex: 0 0 260px;
+  background: white;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 24px;
+  padding: 2.2rem 1.2rem 1.8rem 1.2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 250px;
+  box-shadow: 0 10px 30px rgba(148, 163, 184, 0.03), 0 2px 4px rgba(148, 163, 184, 0.01);
+}
+
+.concernCard:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 154, 159, 0.08), 0 4px 12px rgba(0, 154, 159, 0.03);
+  border-color: rgba(0, 154, 159, 0.3);
+}
+
+.concernIconWrap {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.concernCard:hover .concernIconWrap {
+  transform: scale(1.08) rotate(3deg);
+}
+
+.concernIcon {
+  width: 46px;
+  height: 46px;
+}
+
+/* Specific Concern Card Color Schemes with Soft Gradients & Shadow Glows */
+.bgPregnancy {
+  background: linear-gradient(135deg, #FFF0F3 0%, #FFE3E8 100%);
+  box-shadow: 0 8px 20px rgba(255, 92, 138, 0.12);
+}
+.bgSkin {
+  background: linear-gradient(135deg, #EBF8FF 0%, #D2EEFF 100%);
+  box-shadow: 0 8px 20px rgba(0, 194, 255, 0.12);
+}
+.bgPerformance {
+  background: linear-gradient(135deg, #F3F0FF 0%, #E7E1FF 100%);
+  box-shadow: 0 8px 20px rgba(139, 92, 246, 0.12);
+}
+.bgCold {
+  background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%);
+  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.12);
+}
+.bgChild {
+  background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%);
+  box-shadow: 0 8px 20px rgba(245, 158, 11, 0.12);
+}
+.bgMental {
+  background: linear-gradient(135deg, #FFF1F2 0%, #FFE4E6 100%);
+  box-shadow: 0 8px 20px rgba(244, 63, 94, 0.12);
+}
+
+.concernCard h4 {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.4;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.consultBtn {
+  font-family: inherit;
+  background: transparent;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #009a9f;
+  letter-spacing: 0.08em;
+  border: 1.5px solid #009a9f;
+  padding: 8px 22px;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  margin-top: 4px;
+}
+
+.concernCard:hover .consultBtn {
+  background-color: #009a9f;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 154, 159, 0.2);
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 3rem 0;
+  }
+  .header {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+  .title {
+    font-size: clamp(1.8rem, 8vw, 2.2rem);
+  }
+  .sub {
+    font-size: clamp(1rem, 3.5vw, 1.15rem);
+  }
+  .controls {
+    display: none; /* Hide controls, scroll by touch/swipe on mobile */
+  }
+  .concernCard {
+    flex: 0 0 230px;
+  }
+  .sliderWrapper {
+    gap: 1rem;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .badgeContainer {
+    display: none !important;
+  }
+  .sub {
+    display: none !important;
+  }
+  .title {
+    font-size: 1.55rem !important;
+    margin: 5px 0 8px 0 !important;
+    line-height: 1.25 !important;
+  }
+  .header {
+    margin-bottom: 1.5rem !important;
+    padding: 0 0.5rem !important;
+  }
+  .navButton {
+    display: none !important;
+  }
+  .sliderWrapper {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.6rem !important;
+    padding: 0 0.4rem !important;
+    overflow-x: visible !important;
+  }
+  .concernCard {
+    flex: none !important;
+    padding: 0.8rem 0.5rem !important;
+    min-height: 140px !important;
+    border-radius: 14px !important;
+    border: 1.5px solid rgba(226, 232, 240, 0.9) !important;
+    box-shadow: 0 4px 12px rgba(26, 75, 110, 0.03) !important;
+    background: #ffffff !important;
+  }
+  .concernCard:active {
+    transform: scale(0.97) !important;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05) !important;
+  }
+  .concernIconWrap {
+    width: 44px !important;
+    height: 44px !important;
+    margin-bottom: 0.5rem !important;
+  }
+  .concernIcon {
+    width: 22px !important;
+    height: 22px !important;
+  }
+  .concernCard h4 {
+    font-size: 0.72rem !important;
+    min-height: 36px !important;
+    margin: 0 0 0.5rem 0 !important;
+    line-height: 1.3 !important;
+    font-weight: 800 !important;
+    color: #1e293b !important;
+  }
+  .consultBtn {
+    font-size: 0.6rem !important;
+    padding: 0.35rem 0 !important;
+    max-width: 95px !important;
+    width: 100% !important;
+    border-radius: 6px !important;
+    background-color: #009a9f !important;
+    color: #ffffff !important;
+    border: none !important;
+    font-weight: 800 !important;
+    box-shadow: 0 4px 10px rgba(0, 154, 159, 0.2) !important;
+    margin-top: 0 !important;
+  }
+  .viewAllBtn {
+    padding: 0.5rem 1.2rem !important;
+    font-size: 0.75rem !important;
+    border-radius: 8px !important;
+    margin-top: 0 !important;
+  }
+  .bottomContainer {
+    margin-top: 1.5rem !important;
+  }
+  .dividerWrapper {
+    margin-top: 0.75rem !important;
+  }
+  .section {
+    padding: 2.5rem 0 4.5rem !important;
+  }
+}
+
+.bottomContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  position: relative;
+  z-index: 10;
+}
+
+.viewAllBtn {
+  background: white;
+  color: #009a9f;
+  border: 2px solid #009a9f;
+  padding: 0.65rem 1.4rem;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.viewAllBtn:hover {
+  background-color: #009a9f;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 154, 159, 0.15);
+}
+

@@ -1,0 +1,346 @@
+.heroSection {
+  background-color: #1A4B6E;
+  position: relative;
+  overflow: hidden;
+  padding: 6rem 2rem;
+  color: white;
+  text-align: center;
+  border-bottom: 5px solid #009A9F;
+}
+
+.heroSection::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  right: -200px;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: rgba(0, 154, 159, 0.15);
+  pointer-events: none;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.heroContent {
+  max-width: 780px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.topTag {
+  display: inline-block;
+  color: #009A9F;
+  font-weight: 800;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  background-color: rgba(0, 154, 159, 0.15);
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+}
+
+.heroTitle {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 0;
+  letter-spacing: -1px;
+}
+
+.heroSubtitle {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: #E2E8F0;
+  margin: 0;
+  font-weight: 300;
+}
+
+/* Vision Section */
+.visionSection {
+  padding: 5rem 2rem;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.visionGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3.5rem;
+}
+
+.visionCard {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: left;
+}
+
+.sectionTitle {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #1A4B6E;
+  margin: 0;
+  border-left: 4px solid #009A9F;
+  padding-left: 0.75rem;
+}
+
+.sectionText {
+  font-size: 1.05rem;
+  color: #55758C;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Values Section */
+.valuesSection {
+  padding: 5rem 2rem;
+  background-color: #F8FAFC;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tag {
+  display: inline-block;
+  color: #009A9F;
+  font-weight: 800;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.5rem;
+}
+
+.mainTitle {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #1A4B6E;
+  margin: 0 0 0.5rem 0;
+}
+
+.subtitle {
+  font-size: 1.05rem;
+  color: #55758C;
+  max-width: 550px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.valuesGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.valueCard {
+  background-color: #FFFFFF;
+  border-radius: 20px;
+  border: 1px solid #F1F5F9;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.02);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.valueCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0, 154, 159, 0.1);
+  border-color: rgba(0, 154, 159, 0.2);
+}
+
+.iconWrapper {
+  background-color: #E8F4F5;
+  color: #009A9F;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  transition: all 0.3s ease;
+}
+
+.valueCard:hover .iconWrapper {
+  background-color: #009A9F;
+  color: white;
+}
+
+.valueTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1A4B6E;
+  margin: 0 0 0.5rem 0;
+}
+
+.valueDesc {
+  font-size: 0.85rem;
+  color: #64748B;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Leadership Section */
+.leadershipSection {
+  padding: 5rem 2rem;
+  background-color: #FFFFFF;
+}
+
+.leadersGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+.leaderCard {
+  background-color: #F8FAFC;
+  border-radius: 24px;
+  border: 1px solid #E2E8F0;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.02);
+  transition: all 0.3s ease;
+}
+
+.leaderCard:hover {
+  transform: translateY(-4px);
+  background-color: #FFFFFF;
+  border-color: rgba(0, 154, 159, 0.3);
+  box-shadow: 0 12px 30px rgba(0, 154, 159, 0.08);
+}
+
+.avatarWrapper {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.avatar {
+  background-color: #E8F4F5;
+  color: #009A9F;
+  width: 78px;
+  height: 78px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 4px solid #FFFFFF;
+  box-shadow: 0 4px 12px rgba(0, 154, 159, 0.15);
+}
+
+.starBadge {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #FFB000;
+  color: #FFFFFF;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #FFFFFF;
+}
+
+.leaderInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.leaderName {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #1A4B6E;
+  margin: 0 0 0.25rem 0;
+}
+
+.leaderRole {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #009A9F;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.25rem;
+}
+
+.leaderQual {
+  font-size: 0.8rem;
+  color: #64748B;
+  font-weight: 600;
+}
+
+.leaderDivider {
+  height: 2px;
+  width: 40px;
+  background-color: #E2E8F0;
+  margin: 1.25rem 0;
+}
+
+.leaderDesc {
+  font-size: 0.9rem;
+  color: #475569;
+  line-height: 1.5;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .valuesGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  
+  .leadersGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .visionGrid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  
+  .heroTitle {
+    font-size: 2.2rem;
+  }
+  
+  .heroSection {
+    padding: 4rem 1.5rem;
+  }
+  
+  .visionSection, .valuesSection, .leadershipSection {
+    padding: 3.5rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .valuesGrid {
+    grid-template-columns: 1fr;
+  }
+}

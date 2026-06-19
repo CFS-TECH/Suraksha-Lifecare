@@ -1,0 +1,310 @@
+.section {
+  padding: 6rem 2rem;
+  background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+  position: relative;
+  overflow: hidden;
+}
+
+.gridOverlay {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(0, 154, 159, 0.035) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.ambientGlow {
+  position: absolute;
+  top: -10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(0, 154, 159, 0.05) 0%, rgba(26, 75, 110, 0.02) 50%, transparent 100%);
+  filter: blur(85px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4.5rem;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  color: #009A9F;
+  font-weight: 800;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.75rem;
+  background-color: rgba(0, 154, 159, 0.06);
+  padding: 6px 14px;
+  border-radius: 100px;
+  border: 1px solid rgba(0, 154, 159, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 154, 159, 0.02);
+}
+
+.title {
+  font-size: 2.5rem;
+  color: #1A4B6E;
+  margin-bottom: 0.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.dividerWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0 1.5rem 0;
+}
+
+.glowLine {
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #009A9F 50%, transparent);
+  border-radius: 2px;
+}
+
+.dividerNode {
+  width: 6px;
+  height: 6px;
+  background-color: #1A4B6E;
+  border-radius: 50%;
+  margin: 0 8px;
+  box-shadow: 0 0 8px rgba(26, 75, 110, 0.3);
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #55758C;
+  max-width: 540px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  position: relative;
+}
+
+.stepCard {
+  background: #ffffff;
+  border: 1px solid rgba(0, 154, 159, 0.06);
+  border-radius: 24px;
+  padding: 3rem 2.2rem;
+  box-shadow: 0 10px 30px rgba(26, 75, 110, 0.015);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.stepCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 154, 159, 0.07);
+  border-color: rgba(0, 154, 159, 0.2);
+}
+
+.stepHeader {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.iconContainer {
+  position: relative;
+}
+
+.iconPlate {
+  width: 62px;
+  height: 62px;
+  background: linear-gradient(135deg, rgba(0, 154, 159, 0.08) 0%, rgba(26, 75, 110, 0.03) 100%);
+  color: #009A9F;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(0, 154, 159, 0.08);
+  box-shadow: 0 4px 12px rgba(0, 154, 159, 0.03);
+}
+
+.stepCard:hover .iconPlate {
+  background: linear-gradient(135deg, #009A9F 0%, #1A4B6E 100%);
+  color: #ffffff;
+  transform: rotate(-8deg) scale(1.05);
+  border-color: transparent;
+  box-shadow: 0 8px 20px rgba(0, 154, 159, 0.2);
+}
+
+.stepNumber {
+  font-size: 2.25rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, rgba(0, 154, 159, 0.15) 0%, rgba(26, 75, 110, 0.08) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
+  font-family: 'Outfit', 'Inter', sans-serif;
+  opacity: 0.85;
+  transition: all 0.4s ease;
+}
+
+.stepCard:hover .stepNumber {
+  transform: scale(1.08) translateY(-2px);
+  opacity: 1;
+  background: linear-gradient(135deg, #009A9F 0%, #1A4B6E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.stepTitle {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1A4B6E;
+  margin: 0 0 0.75rem 0;
+  letter-spacing: -0.015em;
+  transition: color 0.3s ease;
+}
+
+.stepCard:hover .stepTitle {
+  color: #009A9F;
+}
+
+.stepDescription {
+  font-size: 0.95rem;
+  color: #64748B;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.flowArrow {
+  position: absolute;
+  top: 76px;
+  right: -1.75rem;
+  color: rgba(0, 154, 159, 0.25);
+  width: 24px;
+  height: 24px;
+  z-index: 2;
+  animation: floatArrow 2.5s infinite ease-in-out;
+  pointer-events: none;
+}
+
+.flowArrow svg {
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes floatArrow {
+  0%, 100% {
+    transform: translateX(0);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateX(6px);
+    opacity: 0.95;
+    color: #009A9F;
+  }
+}
+
+@media (max-width: 968px) {
+  .grid {
+    display: flex !important;
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    gap: 1.25rem !important;
+    padding: 0.5rem 1rem !important;
+    margin: 0 -1.5rem !important; /* bleed edge */
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+  
+  .grid::-webkit-scrollbar {
+    display: none !important;
+  }
+  
+  .flowArrow {
+    display: none !important;
+  }
+  
+  .stepCard {
+    flex: 0 0 75% !important; /* Slightly narrower to fit screen better */
+    scroll-snap-align: center !important;
+    padding: 1.15rem !important; /* Shrunk padding */
+    border-radius: 18px !important;
+    box-shadow: 0 8px 25px rgba(26, 75, 110, 0.04) !important;
+  }
+  
+  .section {
+    padding: 2.2rem 1.5rem !important;
+  }
+  
+  .header {
+    margin-bottom: 1.5rem !important;
+  }
+  
+  .tag {
+    display: none !important;
+  }
+  
+  .title {
+    font-size: 1.45rem !important;
+    margin-bottom: 0.25rem !important;
+  }
+  
+  .dividerWrapper {
+    margin: 0.5rem 0 0.5rem 0 !important;
+  }
+  
+  .subtitle {
+    display: none !important;
+  }
+  
+  .stepHeader {
+    margin-bottom: 0.75rem !important; /* Shrunk margin */
+  }
+  
+  .iconPlate {
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 14px !important;
+  }
+  
+  .iconPlate svg {
+    width: 20px !important;
+    height: 20px !important;
+  }
+  
+  .stepNumber {
+    font-size: 1.75rem !important;
+  }
+  
+  .stepTitle {
+    font-size: 1.1rem !important;
+    margin-bottom: 0 !important;
+  }
+  
+  .stepDescription {
+    display: none !important;
+  }
+}
+

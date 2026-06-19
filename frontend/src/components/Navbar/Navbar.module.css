@@ -1,0 +1,1308 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Top Header Styles */
+.topHeader {
+  background-color: #ffffff;
+  border-bottom: 1px solid #f1f5f9;
+  height: 88px; /* Balanced height for a cleaner visual layout */
+  display: flex;
+  align-items: center;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.topHeaderContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 1.25rem;
+}
+
+/* Grouped Logo and Location Selector */
+.logoAndLocation {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+@keyframes logoIntro {
+  0% {
+    opacity: 0;
+    transform: scale(0.9) translateY(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation: logoIntro 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.logo:hover {
+  transform: scale(1.04);
+  filter: drop-shadow(0 4px 15px rgba(0, 154, 159, 0.28));
+}
+
+.logo:active {
+  transform: scale(0.97);
+}
+
+.logoWrapper {
+  height: 88px; /* Increased to header height to prevent cropping */
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  position: relative; /* Position relative to contain absolute shine overlays */
+}
+
+.logoWrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 80px;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.45) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg);
+  pointer-events: none;
+}
+
+.logo:hover .logoWrapper::after {
+  animation: logoShine 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes logoShine {
+  0% {
+    left: -150%;
+  }
+  100% {
+    left: 180%;
+  }
+}
+
+.logoImage {
+  max-height: 100px; /* Adjusted to fit within the 88px wrapper height */
+  width: auto;
+  object-fit: contain;
+  margin-top: 6px; /* Centered visually */
+  margin-bottom: -18px; /* Safe crop without cutting off the logo graphic */
+  transition: all 0.3s ease;
+}
+
+.separator {
+  width: 1px;
+  height: 28px;
+  background-color: #cbd5e1;
+}
+
+/* Scroll Morphing Styles */
+.headerScrolled .topHeader {
+  height: 68px; /* Balanced sticky height */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.headerScrolled .bottomHeader {
+  height: 0;
+  overflow: hidden;
+  border-bottom: none;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.headerScrolled .logoWrapper {
+  height: 62px;
+}
+
+.headerScrolled .logoImage {
+  max-height: 72px;
+  margin-top: 5px;
+  margin-bottom: -15px;
+}
+
+/* Location Selector Styles (Rounded Rectangle matching hero buttons) */
+.locationSelector {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #1a4b6e;
+  font-weight: 700;
+  font-size: 0.88rem;
+  cursor: pointer;
+  position: relative;
+  padding: 0.5rem 1.15rem;
+  border-radius: 8px; /* Changed from pill to matching rounded rectangle */
+  background-color: #f0fdf4; /* Clinical soft background tint */
+  border: 1px solid #ccfbf1;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.locationSelector:hover {
+  background-color: #e6fffa;
+  border-color: #009a9f;
+}
+
+.pinIcon {
+  color: #ff5722; /* Orange map pin icon */
+}
+
+.locationText {
+  color: #1a4b6e;
+}
+
+.chevronSmall {
+  color: #009a9f;
+}
+
+.locationDropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+  display: none;
+  flex-direction: column;
+  min-width: 140px;
+  width: max-content;
+  z-index: 120;
+  margin-top: 0.5rem;
+  overflow: hidden;
+  padding: 0.25rem 0;
+}
+
+.locationSelector:hover .locationDropdown {
+  display: flex;
+}
+
+.locationDropdown button {
+  padding: 0.6rem 1rem;
+  border: none;
+  background: none;
+  text-align: left;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: #1a4b6e;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.locationDropdown button:hover {
+  background-color: #f0fdf4;
+  color: #009a9f;
+}
+
+/* Search Box Styles (Rounded Input Wrapper) */
+.searchForm {
+  flex: 1;
+  max-width: 440px;
+}
+
+.searchWrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid #b2ebe5; /* Soft brand-aligned teal border */
+  border-radius: 8px; /* Changed from pill to matching rounded rectangle */
+  overflow: hidden;
+  padding: 3px 3px 3px 1rem;
+  height: 44px;
+  background: #ffffff;
+  transition: all 0.2s ease;
+}
+
+.searchWrapper:focus-within {
+  border-color: #009a9f;
+  box-shadow: 0 0 0 3px rgba(0, 154, 159, 0.15);
+}
+
+.searchIcon {
+  color: #009a9f;
+}
+
+.searchInput {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #1a4b6e;
+  margin: 0 0.5rem;
+}
+
+.searchInput::placeholder {
+  color: #94a3b8;
+}
+
+.searchBtn {
+  background: #009a9f; /* Brand teal primary */
+  color: white;
+  border: none;
+  padding: 0.4rem 1.5rem;
+  border-radius: 6px; /* Sized to perfectly nest mathematically inside 8px wrapper */
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 154, 159, 0.2);
+}
+
+.searchBtn:hover {
+  background: #007e82;
+  box-shadow: 0 4px 12px rgba(0, 154, 159, 0.3);
+}
+
+/* Navigation Links Scrolled (Desktop) */
+.navLinksScrolled {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  margin: 0 auto;
+}
+
+/* Navigation Links (Bottom bar & Sticky header) */
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 3rem; /* Clean, consistent spacing between items */
+  height: 100%;
+  margin-left: 3rem; /* Visual offset from the left edge */
+}
+
+.navItem {
+  position: relative;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #1a4b6e; /* Brand deep blue links */
+  transition: all 0.2s ease;
+  cursor: pointer;
+  padding: 0.4rem 0.5rem;
+  position: relative;
+  text-decoration: none;
+}
+
+.link:hover {
+  color: #ff5722;
+}
+
+/* Remove default focus outline black box */
+.link:focus {
+  outline: none;
+}
+
+.link:focus-visible {
+  outline: 2px solid #ff5722;
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0.5rem;
+  right: 0.5rem;
+  height: 2px;
+  background-color: #ff5722;
+  transform: scaleX(0);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: right;
+}
+
+.link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.chevron {
+  color: #1a4b6e;
+  transition: transform 0.25s ease;
+}
+
+.navItemDropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 52px;
+  transition: all 0.3s ease;
+}
+
+.headerScrolled .navItemDropdown {
+  height: 64px;
+}
+
+.navItemDropdown:hover .chevron {
+  transform: rotate(180deg);
+  color: #ff5722;
+}
+
+/* Long Term Care Accent Button (Matching rounded rectangle style) */
+.plansPill {
+  background: linear-gradient(135deg, #ff7a45, #ff5722) !important;
+  color: #ffffff !important;
+  padding: 0.5rem 1.75rem !important; /* Increased padding to widen the button */
+  border-radius: 8px !important;
+  font-weight: 700 !important;
+  font-size: 0.9rem !important;
+  box-shadow: 0 4px 10px rgba(255, 87, 34, 0.2);
+  transition: all 0.25s ease;
+  border: 1px solid transparent;
+}
+
+.plansPill:hover {
+  background: linear-gradient(135deg, #e64a19, #d84315) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(255, 87, 34, 0.3);
+}
+
+.plansPill:focus {
+  outline: none;
+}
+
+.plansPill:focus-visible {
+  outline: 2px solid #ff5722;
+  outline-offset: 4px;
+}
+
+.plansPill::after {
+  display: none !important;
+}
+
+/* Mega Menu Dropdown */
+.megaMenu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  width: 540px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
+  padding: 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1000;
+  border: 1px solid #e2e8f0;
+  margin-top: 0.5rem;
+}
+
+.navItemDropdown:hover .megaMenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.megaMenuGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.serviceCategoryLink {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #1a4b6e;
+  font-weight: 600;
+  font-size: 0.88rem;
+  padding: 0.65rem 0.75rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.serviceCategoryLink:hover {
+  background-color: rgba(0, 154, 159, 0.05);
+  color: #009a9f;
+  transform: translateX(3px);
+}
+
+.serviceIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #009a9f;
+  background-color: rgba(0, 154, 159, 0.08);
+  width: 32px;
+  height: 32px;
+  border-radius: 0.375rem;
+  transition: all 0.2s ease;
+}
+
+.serviceCategoryLink:hover .serviceIcon {
+  color: #ffffff;
+  background-color: #009a9f;
+}
+
+/* Actions in Top Header */
+.topActions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Send Enquiry Rounded Button */
+.enquiryBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid #ccfbf1;
+  background-color: #f0fdf4;
+  color: #009a9f;
+  padding: 0.5rem 1.25rem;
+  border-radius: 8px; /* Changed from pill to matching rounded rectangle */
+  font-weight: 800;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  letter-spacing: 0.03em;
+}
+
+.enquiryBtn:hover {
+  background-color: #e6fffa;
+  border-color: #009a9f;
+  transform: translateY(-1px);
+}
+
+.enquiryBtn:focus {
+  outline: none;
+}
+
+.enquiryBtn:focus-visible {
+  outline: 2px solid #009a9f;
+  outline-offset: 4px;
+}
+
+/* Pulsing Green Dot */
+@keyframes pulseGreen {
+  0% {
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 5px rgba(34, 197, 94, 0);
+  }
+  100% {
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+  }
+}
+
+.greenDot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #22c55e;
+  border-radius: 50%;
+  animation: pulseGreen 2s infinite;
+}
+
+/* Phone Rounded Button */
+.phoneBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #1a4b6e; /* Brand deep blue */
+  color: white;
+  padding: 0.55rem 1.35rem;
+  border-radius: 8px; /* Changed from pill to matching rounded rectangle */
+  font-weight: 700;
+  font-size: 0.88rem;
+  transition: all 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 10px rgba(26, 75, 110, 0.15);
+  text-decoration: none;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.phoneBtn:hover {
+  background-color: #143b57;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(26, 75, 110, 0.25);
+}
+
+.phoneBtn:focus {
+  outline: none;
+}
+
+.phoneBtn:focus-visible {
+  outline: 2px solid #1a4b6e;
+  outline-offset: 4px;
+}
+
+.phoneBtnIcon {
+  color: white;
+}
+
+/* Bottom Header Styles (Matching page bg and clinical line separator) */
+.bottomHeader {
+  background-color: #f4f8fa; /* Harmonized with website main page background */
+  border-bottom: 1px solid #e2e8f0;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+}
+
+.bottomHeaderContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.mobileRightActions {
+  display: none;
+}
+
+.mobileBookCareCTA {
+  display: none;
+}
+
+/* Hamburger for Mobile */
+.hamburger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 0.375rem;
+  color: #1a4b6e;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+}
+
+@media (hover: hover) {
+  .hamburger:hover {
+    background-color: rgba(26, 75, 110, 0.05);
+  }
+}
+
+.mobileSearchToggle {
+  display: none;
+}
+
+.mobilePhoneBtn {
+  display: none;
+}
+
+.mobilePhoneBadge {
+  display: none;
+}
+
+/* Mobile Menu Panel */
+.mobileMenu {
+  position: fixed;
+  top: 76px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 76px);
+  background-color: #ffffff;
+  z-index: 95;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+.headerScrolled .mobileMenu {
+  top: 64px;
+  height: calc(100vh - 64px);
+}
+
+.mobileMenuOpen {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.mobileMenuContainer {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.mobileNavLink {
+  display: block;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1a4b6e;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.mobileNavLink:hover {
+  color: #ff5722;
+}
+
+.mobileNavLinkOrange {
+  display: block;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #ff5722;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 87, 34, 0.1);
+  text-decoration: none;
+}
+
+.mobileNavLinkDropdown {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1a4b6e;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  text-align: left;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.mobileNavLinkDropdown:hover {
+  color: #ff5722;
+}
+
+.chevronRotate {
+  transform: rotate(180deg);
+  color: #009a9f !important;
+}
+
+.mobileSubMenu {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.mobileSubMenuOpen {
+  max-height: 500px;
+  opacity: 1;
+  margin-top: 0.5rem;
+}
+
+.mobileSubMenuGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+  background-color: #f8fafc;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+}
+
+.mobileServiceLink {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1a4b6e;
+  padding: 0.4rem 0;
+  text-decoration: none;
+}
+
+.mobileServiceIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #009a9f;
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  background-color: rgba(0, 154, 159, 0.08);
+}
+
+.mobileActions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.mobilePhoneBlock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1a4b6e;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  background-color: #f1f5f9;
+  text-decoration: none;
+}
+
+.mobileBookBtn {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 0.95rem;
+  border-radius: 0.5rem;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .logoAndLocation .separator,
+  .logoAndLocation .locationSelector,
+  .searchForm,
+  .topActions,
+  .bottomHeader,
+  .navLinksScrolled {
+    display: none !important;
+  }
+  
+  .mobileRightActions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .mobileBookCareCTA {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #009a9f 0%, #00bcc4 100%);
+    color: #ffffff !important;
+    font-size: 0.78rem;
+    font-weight: 800;
+    padding: 0.45rem 0.9rem;
+    border-radius: 30px; /* Pill layout matching rounded design guidelines */
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: none;
+    outline: none !important;
+    box-shadow: 0 2px 6px rgba(0, 154, 159, 0.2);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  @media (hover: hover) {
+    .mobileBookCareCTA:hover {
+      background: linear-gradient(135deg, #00bcc4 0%, #009a9f 100%);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(0, 154, 159, 0.35);
+    }
+  }
+
+  .mobileBookCareCTA:active {
+    transform: scale(0.97);
+    background: #007e82;
+  }
+
+  .hamburger {
+    display: flex;
+    border-radius: 50% !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  
+  .topHeader {
+    height: 70px;
+    border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+  }
+
+  .logoWrapper {
+    height: 50px !important;
+  }
+  
+  .logoImage {
+    max-height: 50px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .mobileMenu {
+    top: 70px !important;
+    height: calc(100vh - 70px) !important;
+  }
+
+  .mobileSearchToggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50% !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .searchToggleIcon {
+    color: #1a4b6e;
+  }
+
+  @media (hover: hover) {
+    .mobileSearchToggle:hover {
+      background-color: rgba(26, 75, 110, 0.05);
+    }
+    .mobileSearchToggle:hover .searchToggleIcon {
+      color: #ff5722;
+    }
+  }
+
+  .mobileSearchContainer {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 0.6rem 1rem;
+    width: 100%;
+    animation: slideDownSearch 0.25s ease-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+    z-index: 99;
+  }
+
+  @keyframes slideDownSearch {
+    from {
+      transform: translateY(-10px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .mobileSearchForm {
+    width: 100%;
+  }
+
+  .mobileSearchWrapper {
+    display: flex;
+    align-items: center;
+    border: 1px solid #b2ebe5;
+    border-radius: 8px;
+    padding: 3px 3px 3px 0.75rem;
+    height: 38px;
+    background: #ffffff;
+  }
+
+  .mobileSearchWrapper:focus-within {
+    border-color: #009a9f;
+    box-shadow: 0 0 0 3px rgba(0, 154, 159, 0.15);
+  }
+
+  .mobileSearchInput {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #1a4b6e;
+    margin: 0 0.5rem;
+  }
+
+  .mobileSearchBtn {
+    background: #009a9f;
+    color: white;
+    border: none;
+    padding: 0 1rem;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    cursor: pointer;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mobilePhoneBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    height: 40px;
+    border-radius: 8px;
+    color: #1a4b6e;
+    transition: all 0.2s ease;
+    background: transparent;
+    padding: 0 0.5rem;
+    text-decoration: none;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  
+  .mobilePhoneText {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #1a4b6e;
+    white-space: nowrap;
+  }
+
+  .mobilePhoneIcon {
+    color: #1a4b6e;
+  }
+
+  @media (hover: hover) {
+    .mobilePhoneBtn:hover,
+    .mobilePhoneBtn:hover .mobilePhoneText,
+    .mobilePhoneBtn:hover .mobilePhoneIcon {
+      color: #ff5722;
+    }
+  }
+}
+
+/* Active Page Navigation States */
+.activeLink {
+  color: #ff5722 !important;
+}
+
+.activeLink .chevron {
+  color: #ff5722 !important;
+}
+
+.activeLink::after {
+  transform: scaleX(1) !important;
+  transform-origin: left !important;
+}
+
+.activeServiceLink {
+  background-color: rgba(255, 87, 34, 0.05) !important;
+  color: #ff5722 !important;
+  transform: translateX(3px);
+}
+
+.activeServiceLink .serviceIcon {
+  color: #ffffff !important;
+  background-color: #ff5722 !important;
+}
+
+/* Mobile Active States */
+.mobileActiveLink {
+  color: #ff5722 !important;
+  font-weight: 800 !important;
+  border-bottom: 1px solid rgba(255, 87, 34, 0.2) !important;
+}
+
+.mobileActiveServiceLink {
+  color: #ff5722 !important;
+  font-weight: 700 !important;
+}
+
+.mobileActiveServiceLink .mobileServiceIcon {
+  color: #ffffff !important;
+  background-color: #ff5722 !important;
+}
+
+/* Support Badge Styles */
+.supportBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.85rem;
+  background-color: rgba(255, 87, 34, 0.05); /* Soft translucent orange background */
+  border: 1px solid rgba(255, 87, 34, 0.25); /* Delicate orange border */
+  border-radius: 20px; /* Pill layout */
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: #ff5722 !important; /* Brand orange text */
+  box-shadow: 0 2px 8px rgba(255, 87, 34, 0.05);
+  user-select: none;
+  margin-right: 3rem; /* Aligns with the grid edge */
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.supportBadge:hover {
+  background-color: rgba(255, 87, 34, 0.1); /* Slightly richer orange background on hover */
+  border-color: rgba(255, 87, 34, 0.45);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(255, 87, 34, 0.1);
+}
+
+.supportIcon {
+  color: #ff5722 !important;
+}
+
+.supportDot {
+  width: 6px;
+  height: 6px;
+  background-color: #ff5722;
+  border-radius: 50%;
+  position: relative;
+  margin-left: 2px;
+}
+
+.supportDot::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 50%;
+  border: 2px solid #ff5722;
+  animation: supportPulse 1.8s infinite ease-in-out;
+}
+
+@keyframes supportPulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+
+.supportText {
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .mobileRightActions {
+    gap: 0.5rem !important;
+  }
+
+  .mobilePhoneText {
+    display: none !important;
+  }
+  
+  .mobilePhoneBtn {
+    display: none !important; /* Hide phone icon from the main header row on mobile phones */
+  }
+
+  .mobilePhoneBadge {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(90deg, #004244 0%, #007c80 100%);
+    border-bottom: 2px solid rgba(0, 229, 255, 0.45);
+    color: #ffffff;
+    height: 38px;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    width: 100%;
+    z-index: 90;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .mobilePhoneBadge::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.08) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-25deg);
+    animation: badgeShine 4s infinite linear;
+  }
+
+  @keyframes badgeShine {
+    0% { left: -100%; }
+    35% { left: 150%; }
+    100% { left: 150%; }
+  }
+
+  .badgeContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.85rem;
+    height: 100%;
+    width: 100%;
+  }
+
+  .badgeStatus {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .badgeLiveDot {
+    width: 6px;
+    height: 6px;
+    background-color: #22c55e;
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 0 0 6px #22c55e;
+  }
+
+  .badgeLiveDot::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 50%;
+    border: 2px solid #22c55e;
+    animation: liveDotPulse 2s infinite ease-in-out;
+  }
+
+  @keyframes liveDotPulse {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(2.8);
+      opacity: 0;
+    }
+  }
+
+  .badgeStatusText {
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.85);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .badgeDivider {
+    width: 1px;
+    height: 14px;
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .badgeCallInfo {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .mobilePhoneBadgeIcon {
+    color: #00e5ff;
+    animation: phonePulseShake 2.5s infinite ease-in-out;
+    filter: drop-shadow(0 0 2px rgba(0, 229, 255, 0.5));
+  }
+
+  .badgeNumber {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #00e5ff;
+    letter-spacing: 0.03em;
+    text-shadow: 0 0 6px rgba(0, 229, 255, 0.4);
+  }
+
+  @keyframes phonePulseShake {
+    0%, 100% { transform: scale(1) rotate(0); }
+    10% { transform: scale(1.15) rotate(-10deg); }
+    15% { transform: scale(1.15) rotate(10deg); }
+    20% { transform: scale(1.15) rotate(-10deg); }
+    25% { transform: scale(1.15) rotate(10deg); }
+    30% { transform: scale(1) rotate(0); }
+  }
+
+  .mobilePhoneBadge:active {
+    background: linear-gradient(90deg, #002d2e 0%, #005a5d 100%);
+  }
+
+  .mobileMenu {
+    top: 108px !important; /* 70px header + 38px phone badge */
+    height: calc(100vh - 108px) !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .mobileRightActions {
+    gap: 0.3rem !important;
+  }
+  
+  .mobileBookCareCTA {
+    padding: 0.35rem 0.65rem !important;
+    font-size: 0.72rem !important;
+  }
+
+  .logoImage {
+    max-height: 38px !important;
+  }
+  
+  .logoWrapper {
+    height: 38px !important;
+  }
+  
+  .hamburger,
+  .mobileSearchToggle {
+    width: 36px !important;
+    height: 36px !important;
+  }
+
+  .mobilePhoneBadge {
+    height: 32px !important;
+  }
+
+  .badgeContent {
+    gap: 0.5rem !important;
+  }
+
+  .badgeStatusText {
+    font-size: 0.65rem !important;
+  }
+
+  .badgeNumber {
+    font-size: 0.78rem !important;
+  }
+
+  .mobileMenu {
+    top: 102px !important; /* 70px header + 32px phone badge */
+    height: calc(100vh - 102px) !important;
+  }
+}

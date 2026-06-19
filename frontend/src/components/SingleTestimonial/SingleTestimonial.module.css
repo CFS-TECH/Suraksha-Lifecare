@@ -1,0 +1,175 @@
+.section {
+  padding: 4.5rem 2rem;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.tag {
+  display: inline-block;
+  color: #009A9F;
+  font-weight: 800;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  font-size: 2.2rem;
+  color: #1A4B6E;
+  margin-bottom: 0;
+  font-weight: 800;
+}
+
+.card {
+  background-color: #F8FAFC;
+  border-radius: 20px;
+  border: 1px solid #E2E8F0;
+  padding: 3rem;
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.01);
+}
+
+.quoteIcon {
+  color: rgba(0, 154, 159, 0.15);
+  margin-bottom: 1.5rem;
+}
+
+.rating {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 1.5rem;
+}
+
+.starIcon {
+  flex-shrink: 0;
+}
+
+.quoteText {
+  font-size: 1.15rem;
+  font-style: italic;
+  color: #334155;
+  line-height: 1.7;
+  font-weight: 500;
+  margin: 0 0 2rem 0;
+  max-width: 680px;
+}
+
+.authorBlock {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+}
+
+.avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #E8F4F5;
+  color: #009A9F;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.95rem;
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 2px 8px rgba(0, 154, 159, 0.1);
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.authorName {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #1A4B6E;
+  margin: 0;
+}
+
+.authorSub {
+  font-size: 0.8rem;
+  color: #64748B;
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .section {
+    padding: 2.5rem 1rem !important;
+  }
+  
+  .header {
+    margin-bottom: 1.5rem !important;
+  }
+
+  .tag {
+    font-size: 0.75rem !important;
+    margin-bottom: 0.35rem !important;
+  }
+
+  .title {
+    font-size: 1.6rem !important;
+    letter-spacing: -0.3px !important;
+  }
+
+  .card {
+    padding: 1.75rem 1.25rem !important;
+    border-radius: 16px !important;
+  }
+  
+  .quoteIcon {
+    margin-bottom: 0.75rem !important;
+    height: 32px !important;
+    width: 32px !important;
+  }
+
+  .rating {
+    margin-bottom: 1rem !important;
+    gap: 3px !important;
+  }
+
+  .starIcon {
+    width: 15px !important;
+    height: 15px !important;
+  }
+  
+  .quoteText {
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .authorBlock {
+    gap: 8px !important;
+  }
+
+  .avatar {
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 0.8rem !important;
+  }
+
+  .authorName {
+    font-size: 0.9rem !important;
+  }
+
+  .authorSub {
+    font-size: 0.72rem !important;
+  }
+}

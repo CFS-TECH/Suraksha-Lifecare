@@ -1,0 +1,17 @@
+/* App specific styles can go here, but most styles are module or global */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  padding-top: 140px; /* Account for desktop double-decker header */
+}
+
+@media (max-width: 1024px) {
+  .main-content {
+    padding-top: 70px; /* Account for mobile single-row header */
+  }
+}

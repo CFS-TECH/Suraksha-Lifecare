@@ -1,0 +1,360 @@
+.section {
+  padding: 6rem 2rem;
+  background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+  position: relative;
+  overflow: hidden;
+}
+
+.gridOverlay {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(0, 154, 159, 0.035) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.ambientGlow {
+  position: absolute;
+  top: -10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(0, 154, 159, 0.05) 0%, rgba(26, 75, 110, 0.02) 50%, transparent 100%);
+  filter: blur(85px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.container {
+  max-width: 840px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  color: #009A9F;
+  font-weight: 800;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.75rem;
+  background-color: rgba(0, 154, 159, 0.06);
+  padding: 6px 14px;
+  border-radius: 100px;
+  border: 1px solid rgba(0, 154, 159, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 154, 159, 0.02);
+}
+
+.title {
+  font-size: 2.5rem;
+  color: #1A4B6E;
+  margin-bottom: 0.75rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-size: 1.05rem;
+  color: #55758C;
+  line-height: 1.6;
+}
+
+.formCard {
+  background: #ffffff;
+  border: 1px solid rgba(0, 154, 159, 0.15);
+  border-top: 6px solid #009A9F;
+  border-radius: 28px;
+  padding: 3.5rem 3rem;
+  box-shadow: 0 20px 50px rgba(0, 154, 159, 0.08);
+  position: relative;
+  z-index: 2;
+}
+
+.formHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+}
+
+.formHeaderIcon {
+  color: #009A9F;
+}
+
+.formHeader h4 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1A4B6E;
+  margin: 0;
+}
+
+.formHeader span {
+  font-size: 0.8rem;
+  color: #8B9FA7;
+  display: block;
+  margin-top: 2px;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem 2rem;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.inputGroup label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1A4B6E;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.inputGroup label svg {
+  color: #009A9F;
+}
+
+.inputGroup input,
+.inputGroup select,
+.textareaGroup textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  color: #1A4B6E;
+  background: #F8FAFC;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.inputGroup input:focus,
+.inputGroup select:focus,
+.textareaGroup textarea:focus {
+  border-color: #009A9F;
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(0, 154, 159, 0.08);
+}
+
+.textareaGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 1.5rem;
+}
+
+.textareaGroup label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1A4B6E;
+}
+
+.textareaGroup textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.submitButton {
+  width: 100%;
+  margin-top: 2.25rem;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #009A9F 0%, #1A4B6E 100%);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 8px 24px rgba(0, 154, 159, 0.25);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.submitButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0, 154, 159, 0.35);
+  filter: brightness(1.05);
+}
+
+.submitButton:disabled {
+  background: #CBD5E1;
+  color: #64748B;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+/* Success State */
+.successState {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.successIconCircle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: rgba(16, 185, 129, 0.1);
+  color: #10B981;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  animation: scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.successTitle {
+  font-size: 1.5rem;
+  font-weight: 850;
+  color: #1A4B6E;
+  margin-bottom: 0.75rem;
+}
+
+.successMessage {
+  font-size: 1.05rem;
+  color: #55758C;
+  line-height: 1.6;
+  max-width: 480px;
+  margin-bottom: 2rem;
+}
+
+.resetBtn {
+  padding: 10px 20px;
+  background: #F1F5F9;
+  color: #475569;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.resetBtn:hover {
+  background: #E2E8F0;
+  color: #334155;
+}
+
+.errorText {
+  color: #EF4444;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    margin-bottom: 1rem !important;
+  }
+  
+  .title {
+    font-size: 1.35rem !important;
+    line-height: 1.2 !important;
+    letter-spacing: -0.3px !important;
+  }
+
+  .subtitle {
+    display: none !important;
+  }
+  
+  .formHeader {
+    margin-bottom: 1rem !important;
+    padding-bottom: 0.5rem !important;
+    gap: 6px !important;
+  }
+
+  .formHeader h4 {
+    font-size: 0.95rem !important;
+  }
+
+  .formHeader span {
+    font-size: 0.7rem !important;
+  }
+
+  .formGrid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem !important;
+  }
+  
+  .formCard {
+    padding: 1.25rem 0.9rem !important;
+    border-radius: 14px !important;
+    border-top-width: 4px;
+  }
+  
+  .section {
+    padding: 2rem 0.75rem !important;
+  }
+
+  .inputGroup {
+    gap: 3px !important;
+  }
+
+  .inputGroup label {
+    font-size: 0.78rem !important;
+  }
+  
+  .inputGroup input,
+  .inputGroup select,
+  .textareaGroup textarea {
+    font-size: 14px !important;
+    padding: 8px 10px !important;
+    min-height: 38px !important;
+    border-radius: 8px !important;
+  }
+
+  .textareaGroup {
+    margin-top: 0.8rem !important;
+    gap: 3px !important;
+  }
+
+  .textareaGroup label {
+    font-size: 0.78rem !important;
+  }
+  
+  .submitButton {
+    margin-top: 1rem !important;
+    min-height: 40px !important;
+    font-size: 14px !important;
+    padding: 8px 16px !important;
+    border-radius: 8px !important;
+  }
+}
