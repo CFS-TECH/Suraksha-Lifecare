@@ -14,7 +14,9 @@ import Blog from './pages/Blog/Blog';
 import HomeVisits from './pages/HomeVisits/HomeVisits';
 import RentEquipment from './pages/RentEquipment/RentEquipment';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
+import EnquiryPopup from './components/EnquiryPopup/EnquiryPopup';
 import './App.css';
+
 
 function App() {
   return (
@@ -40,6 +42,7 @@ function App() {
         </main>
         <Footer />
         <WhatsAppBooking />
+        <EnquiryPopup />
       </div>
     </Router>
   );
