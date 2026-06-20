@@ -109,6 +109,7 @@
   margin-bottom: -12px;
   transition: all 0.3s ease;
   filter: contrast(1.15) saturate(1.2);
+  mix-blend-mode: multiply;
 }
 
 .separator {

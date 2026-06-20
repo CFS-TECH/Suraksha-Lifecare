@@ -10,7 +10,7 @@ import {
   Clock,
   Award
 } from 'lucide-react';
-import logo from '../../assets/SurakshaHealthcare logo.png';
+import logo from '../../assets/footerlogo.png';
 import styles from './Footer.module.css';
 
 const Footer = () => {
@@ -66,7 +66,7 @@ const Footer = () => {
           {/* Brand Info */}
           <div className={styles.brandCol}>
             <Link to="/" className={styles.logo}>
-              <img src={logo} alt="Suraksha Lifecare" />
+              <img src={logo} alt="Suraksha Healthcare" />
             </Link>
             <p className={styles.brandDesc}>
               Your trusted partner in professional home healthcare. We provide compassionate care tailored to your needs, ensuring dignity and comfort at every step.
@@ -121,11 +121,11 @@ const Footer = () => {
                   <span className={styles.value}>+91 99907 82525</span>
                 </div>
               </a>
-              <a href="mailto:info@surakshalifecare.com" className={styles.contactItem}>
+              <a href="mailto:info@surakshahealthcare.com" className={styles.contactItem}>
                 <div className={styles.iconBox}><Mail size={18} /></div>
                 <div className={styles.contactText}>
                   <span className={styles.label}>Email Us</span>
-                  <span className={styles.value}>info@surakshalifecare.com</span>
+                  <span className={styles.value}>info@surakshahealthcare.com</span>
                 </div>
               </a>
               <div className={styles.contactItem}>
@@ -142,7 +142,7 @@ const Footer = () => {
         {/* Footer Bottom */}
         <div className={styles.footerBottom}>
           <div className={styles.copyright}>
-            <p>&copy; {new Date().getFullYear()} <strong>Suraksha Lifecare</strong>. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} <strong>Suraksha Healthcare</strong>. All rights reserved.</p>
           </div>
           
           <div className={styles.socialLinks}>
