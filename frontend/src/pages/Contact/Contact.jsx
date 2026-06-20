@@ -140,7 +140,7 @@ const Contact = () => {
                 </div>
                 <div className={styles.cardDetails}>
                   <h4>Our Care Office</h4>
-                  <p>Delhi NCR, India</p>
+                  <p>delhi , sector 1</p>
                   <span>Coordinating care across regions</span>
                 </div>
               </div>

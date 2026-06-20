@@ -132,7 +132,7 @@ const Footer = () => {
                 <div className={styles.iconBox}><MapPin size={18} /></div>
                 <div className={styles.contactText}>
                   <span className={styles.label}>Location</span>
-                  <span className={styles.value}>123 Healthcare Tower, Kolkata</span>
+                  <span className={styles.value}>delhi , sector 1</span>
                 </div>
               </div>
             </div>
