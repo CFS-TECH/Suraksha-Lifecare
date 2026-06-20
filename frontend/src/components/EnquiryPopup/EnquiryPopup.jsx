@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { X } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
+import { X, User, Phone, Send } from 'lucide-react';
 import { API_URL } from '../../config';
 import styles from './EnquiryPopup.module.css';
 
@@ -8,6 +8,8 @@ const EnquiryPopup = () => {
   const [formData, setFormData] = useState({ name: '', phone: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState('');
+  
+  const cardRef = useRef(null);
 
   useEffect(() => {
     // Show popup 1.5 seconds after page loads, only if not shown in current session
@@ -20,6 +22,23 @@ const EnquiryPopup = () => {
       return () => clearTimeout(timer);
     }
   }, []);
+
+  // Professional click-outside close handler
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (cardRef.current && !cardRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('touchstart', handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
+  }, [isOpen]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -51,7 +70,6 @@ const EnquiryPopup = () => {
       if (response.ok) {
         setStatus('Thank you! We will contact you shortly.');
         setFormData({ name: '', phone: '' });
-        // Close the popup after a brief delay so they see the success message
         setTimeout(() => {
           setIsOpen(false);
         }, 1800);
@@ -67,64 +85,62 @@ const EnquiryPopup = () => {
 
   if (!isOpen) return null;
 
-  const handleBackdropClick = (e) => {
-    if (e.target === e.currentTarget) {
-      setIsOpen(false);
-    }
-  };
-
   return (
-    <div className={styles.backdrop} onClick={handleBackdropClick}>
-      <div className={styles.popupCard}>
-        <button 
-          className={styles.closeButton} 
-          onClick={() => setIsOpen(false)}
-          aria-label="Close Enquiry Form"
+    <div className={styles.popupCard} ref={cardRef}>
+      {/* Top Brand Accent Bar */}
+      <div className={styles.accentBar}></div>
+      
+      <button 
+        className={styles.closeButton} 
+        onClick={() => setIsOpen(false)}
+        aria-label="Close Enquiry Form"
+      >
+        <X size={12} />
+      </button>
+
+      <h3 className={styles.formTitle}>Enquire Now</h3>
+      <form onSubmit={handleFormSubmit} className={styles.enquiryForm}>
+        <div className={styles.inputWrapper}>
+          <User size={15} className={styles.inputIcon} />
+          <input
+            type="text"
+            name="name"
+            required
+            placeholder="Name*"
+            value={formData.name}
+            onChange={handleInputChange}
+            className={styles.formInput}
+          />
+        </div>
+
+        <div className={styles.inputWrapper}>
+          <Phone size={15} className={styles.inputIcon} />
+          <input
+            type="tel"
+            name="phone"
+            required
+            placeholder="Phone Number*"
+            value={formData.phone}
+            onChange={handleInputChange}
+            className={styles.formInput}
+          />
+        </div>
+
+        <button
+          type="submit"
+          className={styles.submitButton}
+          disabled={isSubmitting}
         >
-          <X size={16} />
+          <span>{isSubmitting ? 'Submitting...' : 'Submit'}</span>
+          <Send size={12} className={styles.submitIcon} />
         </button>
 
-        <h3 className={styles.formTitle}>Enquire Now</h3>
-        <form onSubmit={handleFormSubmit} className={styles.enquiryForm}>
-          <div className={styles.inputGroup}>
-            <input
-              type="text"
-              name="name"
-              required
-              placeholder="Name*"
-              value={formData.name}
-              onChange={handleInputChange}
-              className={styles.formInput}
-            />
-          </div>
-
-          <div className={styles.inputGroup}>
-            <input
-              type="tel"
-              name="phone"
-              required
-              placeholder="Phone Number*"
-              value={formData.phone}
-              onChange={handleInputChange}
-              className={styles.formInput}
-            />
-          </div>
-
-          <button
-            type="submit"
-            className={styles.submitButton}
-            disabled={isSubmitting}
-          >
-            <span>{isSubmitting ? 'Submitting...' : 'Submit'}</span>
-          </button>
-
-          {status && (
-            <p className={`${styles.statusText} ${status.includes('Failed') || status.includes('failed') ? styles.errorStatus : styles.successStatus}`}>
-              {status}
-            </p>
-          )}
-        </form>
-      </div>
+        {status && (
+          <p className={`${styles.statusText} ${status.includes('Failed') || status.includes('failed') ? styles.errorStatus : styles.successStatus}`}>
+            {status}
+          </p>
+        )}
+      </form>
     </div>
   );
 };
