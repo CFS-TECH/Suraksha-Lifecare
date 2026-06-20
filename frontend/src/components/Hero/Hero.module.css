@@ -37,6 +37,15 @@
   z-index: 10;
   height: 620px;
   width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
+.slidesWrapper {
+  flex: 0 0 54%;
+  position: relative;
+  height: 100%;
 }
 
 .slide {
@@ -47,7 +56,6 @@
   height: 100%;
   display: flex;
   align-items: center;
-  gap: 5rem;
   opacity: 0;
   visibility: hidden;
   transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
@@ -59,7 +67,7 @@
 }
 
 .textContent {
-  flex: 0 0 calc(52% - 2.5rem - 3rem);
+  flex: 0 0 100%;
   margin-left: 3rem; /* Align vertically with bottom navbar links */
   transform: translateX(-40px);
   opacity: 0;
@@ -158,96 +166,136 @@
   box-shadow: 0 10px 25px rgba(26, 75, 110, 0.08);
 }
 
-.imageContent {
-  flex: 0 0 calc(48% - 2.5rem);
-  transform: translateX(40px);
-  opacity: 0;
-  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
-}
-
-.slide.active .imageContent {
-  transform: translateX(0);
-  opacity: 1;
-}
-
-.imageWrapper {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1.05;
-  border-radius: 12px; /* Harmonized with header card layouts */
-  overflow: hidden;
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.06);
-  border: 8px solid white;
-}
-
-.heroImage {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 12s cubic-bezier(0.1, 0.8, 0.2, 1);
-}
-
-.slide.active .heroImage {
-  transform: scale(1.08);
-}
-
-.imageOverlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom, transparent 50%, rgba(26, 75, 110, 0.45));
-  z-index: 1;
-}
-
-.trustFloatingCard {
-  position: absolute;
-  bottom: 2.5rem;
-  left: 2.5rem;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(12px);
-  padding: 1.2rem 1.8rem;
-  border-radius: 12px; /* Harmonized layout */
+/* Static Enquiry Form Card Styles */
+.formContainer {
+  flex: 0 0 46%;
   display: flex;
-  align-items: center;
-  gap: 1rem;
-  z-index: 10;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  animation: float 5s ease-in-out infinite;
+  justify-content: flex-end;
+  z-index: 20;
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
+.enquiryCard {
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: 0 20px 40px rgba(26, 75, 110, 0.06), 0 1px 3px rgba(0, 0, 0, 0.02);
+  padding: 2.2rem;
+  width: 100%;
+  max-width: 440px;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-.trustIcon {
-  width: 44px;
-  height: 44px;
-  background: rgba(0, 154, 159, 0.1);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--primary);
+.enquiryCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 30px 60px rgba(0, 154, 159, 0.1), 0 4px 10px rgba(0, 0, 0, 0.01);
+  border-color: rgba(0, 154, 159, 0.15);
 }
 
-.trustText {
+.formTitle {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1a4b6e;
+  text-align: center;
+  margin-bottom: 1.8rem;
+  letter-spacing: -0.5px;
+}
+
+.enquiryForm {
   display: flex;
   flex-direction: column;
+  gap: 1.25rem;
 }
 
-.trustText strong {
-  font-size: 0.95rem;
-  color: var(--secondary);
+.formInput {
+  width: 100%;
+  height: 52px;
+  padding: 0 1.25rem;
+  border-radius: 8px;
+  border: 1.5px solid #e2e8f0;
+  font-size: 1rem;
+  color: #1a4b6e;
+  background-color: #f8fafc;
+  transition: all 0.3s ease;
+}
+
+.formInput:focus {
+  border-color: var(--primary);
+  background-color: #ffffff;
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(0, 154, 159, 0.1);
+}
+
+.checkboxGroup {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 0.25rem;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  cursor: pointer;
+}
+
+.checkboxInput {
+  margin-top: 0.2rem;
+  width: 16px;
+  height: 16px;
+  accent-color: #1a4b6e;
+  cursor: pointer;
+}
+
+.checkboxText {
+  font-size: 0.82rem;
+  color: #55758c;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.submitButton {
+  width: 100%;
+  height: 52px;
+  background: #1a4b6e;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
   font-weight: 800;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(26, 75, 110, 0.2);
 }
 
-.trustText span {
-  font-size: 0.8rem;
-  color: #55758C;
+.submitButton:hover {
+  background: #102e45;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(26, 75, 110, 0.3);
+}
+
+.submitButton:active {
+  transform: translateY(0);
+}
+
+.statusText {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 0.75rem;
+  border-radius: 6px;
+  margin: 0;
+}
+
+.successStatus {
+  background-color: #f0fdf4;
+  color: #15803d;
+  border: 1px solid #bbf7d0;
+}
+
+.errorStatus {
+  background-color: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
 }
 
 .heroBottom {
@@ -357,16 +405,48 @@
   background: rgba(226, 232, 240, 1);
 }
 
-/* Responsive */
+/* Responsive Overrides */
 @media (max-width: 1024px) {
   .heroSection {
     min-height: auto;
     padding: 3rem 0;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
   }
   
+  .carouselContainer {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .slidesWrapper {
+    width: 100%;
+    flex: 0 0 100%;
+    height: auto;
+  }
+  
+  .slide {
+    position: relative;
+    height: auto;
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .slide.active {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .textContent {
+    flex: 0 0 100%;
+    margin-left: 0;
+    transform: none !important;
+    padding: 0 1rem;
+    text-align: center;
+  }
+
   .headline {
     font-size: clamp(2.2rem, 6vw, 3rem);
     letter-spacing: -0.5px;
@@ -379,48 +459,6 @@
     max-width: 100%;
   }
 
-  .slide {
-    position: relative;
-    flex-direction: column;
-    gap: 2rem;
-    height: 0;
-    overflow: hidden;
-    opacity: 0;
-    visibility: hidden;
-    display: none;
-    transition: opacity 0.4s ease;
-  }
-
-  .slide.active {
-    height: auto;
-    opacity: 1;
-    visibility: visible;
-    display: flex;
-  }
-  
-  .carouselContainer {
-    height: auto;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .textContent {
-    flex: 0 0 100%;
-    margin-left: 0; /* Reset margin on mobile */
-    transform: none !important;
-    padding: 0 1rem;
-  }
-  
-  .imageContent {
-    flex: 0 0 100%;
-    transform: none !important;
-    padding: 0 1rem;
-  }
-  
-  .textContent {
-    text-align: center;
-  }
-  
   .ctaGroup {
     justify-content: center;
     width: 100%;
@@ -433,50 +471,39 @@
     justify-content: center;
     max-width: 520px;
   }
-  
-  .imageWrapper {
+
+  .formContainer {
+    width: 100%;
+    flex: 0 0 100%;
+    justify-content: center;
+    margin-top: 2rem;
+    padding: 0 1rem;
+  }
+
+  .enquiryCard {
     max-width: 480px;
-    margin: 0 auto;
   }
   
   .heroBottom {
     position: static;
     margin-top: 4rem;
   }
-  
-  .bottomFlex {
-    flex-direction: column;
-    gap: 2rem;
-  }
 }
 
 @media (max-width: 768px) {
   .heroSection {
     padding: 2.5rem 0 2rem 0;
-    min-height: auto;
     background: radial-gradient(120% 120% at 50% -10%, #FFFFFF 30%, #F2F8FA 70%, #E5F3F5 100%);
   }
 
-  .slide.active {
-    height: auto;
-    opacity: 1;
-    visibility: visible;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    width: 100%;
-    background: transparent;
-    border: none;
-    box-shadow: none;
-    padding: 0;
-    margin: 0;
+  .carouselContainer {
+    padding: 0 1rem;
+    gap: 2rem;
   }
 
-  .carouselContainer {
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    padding: 0 1rem;
+  .slide.active {
+    gap: 1.5rem;
+    width: 100%;
   }
 
   .tagline {
@@ -488,6 +515,7 @@
     color: var(--primary);
     box-shadow: none;
     align-self: center;
+    display: none !important;
   }
 
   .headline {
@@ -501,49 +529,6 @@
 
   .subtext {
     display: none;
-  }
-
-  .imageContent {
-    display: block !important;
-    width: 100%;
-    max-width: 480px;
-    margin: 0 auto 1.5rem auto;
-    padding: 0;
-    order: -1;
-  }
-
-  .imageWrapper {
-    aspect-ratio: 1.6;
-    border-radius: 20px;
-    border: 4px solid #ffffff;
-    box-shadow: 0 15px 35px rgba(0, 154, 159, 0.1);
-  }
-
-  .trustFloatingCard {
-    bottom: 0.4rem;
-    left: 0.4rem;
-    padding: 0.3rem 0.55rem;
-    border-radius: 6px;
-    gap: 0.3rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  }
-
-  .trustIcon {
-    width: 20px;
-    height: 20px;
-  }
-
-  .trustIcon svg {
-    width: 11px !important;
-    height: 11px !important;
-  }
-
-  .trustText strong {
-    font-size: 0.6rem;
-  }
-
-  .trustText span {
-    font-size: 0.5rem;
   }
 
   .heroMetrics {
@@ -571,13 +556,38 @@
     border-radius: 8px;
   }
 
-  .ctaButtonPrimary {
-    background: linear-gradient(135deg, var(--primary) 0%, #008084 100%);
-    box-shadow: 0 6px 15px rgba(0, 154, 159, 0.2);
-  }
-
   .ctaIconWrapper {
     display: none !important;
+  }
+
+  .formContainer {
+    margin-top: 1rem;
+    padding: 0;
+  }
+
+  .enquiryCard {
+    padding: 1.5rem 1.25rem;
+    border-radius: 12px;
+  }
+
+  .formTitle {
+    font-size: 1.4rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .enquiryForm {
+    gap: 1rem;
+  }
+
+  .formInput {
+    height: 46px;
+    padding: 0 1rem;
+    font-size: 0.95rem;
+  }
+
+  .submitButton {
+    height: 46px;
+    font-size: 1rem;
   }
 
   .heroBottom {
@@ -594,9 +604,6 @@
   }
 
   .trustBar {
-    display: none !important;
-  }
-  .tagline {
     display: none !important;
   }
 }

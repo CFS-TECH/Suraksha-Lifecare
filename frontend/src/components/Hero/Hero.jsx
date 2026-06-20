@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { ArrowRight, Stethoscope, ShieldCheck, Clock, Award } from 'lucide-react';
+import { API_URL } from '../../config';
 import styles from './Hero.module.css';
 
 import patientCareImg from '../../assets/patient_care.png';
@@ -35,6 +36,10 @@ const slides = [
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [formData, setFormData] = useState({ name: '', phone: '' });
+  const [authorized, setAuthorized] = useState(true);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState('');
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -45,6 +50,46 @@ const Hero = () => {
 
   const goToSlide = (index) => {
     setCurrentSlide(index);
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    if (!formData.name || !formData.phone || !authorized) return;
+
+    setIsSubmitting(true);
+    setStatus('');
+
+    try {
+      const response = await fetch(`${API_URL}/api/inquiries`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          phone: formData.phone,
+          city: 'Delhi NCR',
+          serviceType: 'Hero Enquiry',
+          address: 'Instant Enquiry',
+          purpose: 'General Enquiry',
+          message: 'Authorized to contact/WhatsApp'
+        })
+      });
+
+      if (response.ok) {
+        setStatus('Thank you! We will contact you shortly.');
+        setFormData({ name: '', phone: '' });
+      } else {
+        setStatus('Failed to submit enquiry. Please try again.');
+      }
+    } catch (error) {
+      console.warn('Enquiry submission failed.', error);
+      setStatus('Failed to connect. Please try again.');
+    }
+    setIsSubmitting(false);
   };
 
   const handleCtaClick = (ctaText) => {
@@ -67,76 +112,123 @@ const Hero = () => {
       <div className={styles.gridPattern}></div>
       
       <div className={`container ${styles.carouselContainer}`}>
-        {slides.map((slide, index) => {
-          const isActive = index === currentSlide;
+        {/* Left: Slides for Text Content */}
+        <div className={styles.slidesWrapper}>
+          {slides.map((slide, index) => {
+            const isActive = index === currentSlide;
 
-          return (
-            <div 
-              key={slide.id} 
-              className={`${styles.slide} ${isActive ? styles.active : ''}`}
-            >
-              <div className={styles.textContent}>
-                <div className={styles.tagline}>
-                  <ShieldCheck size={16} />
-                  <span>NABL Accredited Partners</span>
-                </div>
-                <h1 className={styles.headline}>{slide.headline}</h1>
-                <p className={styles.subtext}>{slide.subtext}</p>
-                <div className={styles.ctaGroup}>
-                  <button 
-                    className={styles.ctaButtonPrimary}
-                    onClick={() => handleCtaClick(slide.ctaText)}
-                  >
-                    {slide.ctaText}
-                    <span className={styles.ctaIconWrapper}>{slide.ctaIcon}</span>
-                  </button>
-                  <button 
-                    className={styles.ctaButtonSecondary}
-                    onClick={() => window.location.href = '/plans'}
-                  >
-                    View Plans
-                  </button>
-                </div>
-
-                {/* Authority metrics to fill the empty space and add visual credibility */}
-                <div className={styles.heroMetrics}>
-                  <div className={styles.metricItem}>
-                    <span className={styles.metricNumber}>15K+</span>
-                    <span className={styles.metricLabel}>Happy Patients</span>
+            return (
+              <div 
+                key={slide.id} 
+                className={`${styles.slide} ${isActive ? styles.active : ''}`}
+              >
+                <div className={styles.textContent}>
+                  <div className={styles.tagline}>
+                    <ShieldCheck size={16} />
+                    <span>NABL Accredited Partners</span>
                   </div>
-                  <div className={styles.metricDivider}></div>
-                  <div className={styles.metricItem}>
-                    <span className={styles.metricNumber}>4.9★</span>
-                    <span className={styles.metricLabel}>Google Rating</span>
-                  </div>
-                  <div className={styles.metricDivider}></div>
-                  <div className={styles.metricItem}>
-                    <span className={styles.metricNumber}>200+</span>
-                    <span className={styles.metricLabel}>ICU Caregivers</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className={styles.imageContent}>
-                <div className={styles.imageWrapper}>
-                  <div className={styles.imageOverlay}></div>
-                  <img src={slide.image} alt={slide.headline} className={styles.heroImage} />
+                  <h1 className={styles.headline}>{slide.headline}</h1>
+                  <p className={styles.subtext}>{slide.subtext}</p>
                   
-                  {/* Trust Badge Floating */}
-                  <div className={styles.trustFloatingCard}>
-                    <div className={styles.trustIcon}>
-                      <Clock size={20} />
+                  <div className={styles.ctaGroup}>
+                    <button 
+                      className={styles.ctaButtonPrimary}
+                      onClick={() => handleCtaClick(slide.ctaText)}
+                    >
+                      {slide.ctaText}
+                      <span className={styles.ctaIconWrapper}>{slide.ctaIcon}</span>
+                    </button>
+                    <button 
+                      className={styles.ctaButtonSecondary}
+                      onClick={() => window.location.href = '/plans'}
+                    >
+                      View Plans
+                    </button>
+                  </div>
+
+                  {/* Authority metrics to fill the empty space and add visual credibility */}
+                  <div className={styles.heroMetrics}>
+                    <div className={styles.metricItem}>
+                      <span className={styles.metricNumber}>15K+</span>
+                      <span className={styles.metricLabel}>Happy Patients</span>
                     </div>
-                    <div className={styles.trustText}>
-                      <strong>24/7 Support</strong>
-                      <span>Always here for you</span>
+                    <div className={styles.metricDivider}></div>
+                    <div className={styles.metricItem}>
+                      <span className={styles.metricNumber}>4.9★</span>
+                      <span className={styles.metricLabel}>Google Rating</span>
+                    </div>
+                    <div className={styles.metricDivider}></div>
+                    <div className={styles.metricItem}>
+                      <span className={styles.metricNumber}>200+</span>
+                      <span className={styles.metricLabel}>ICU Caregivers</span>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
+
+        {/* Right: Static Enquiry Form Card */}
+        <div className={styles.formContainer}>
+          <div className={styles.enquiryCard}>
+            <h3 className={styles.formTitle}>Enquire Now</h3>
+            <form onSubmit={handleFormSubmit} className={styles.enquiryForm}>
+              <div className={styles.inputGroup}>
+                <input
+                  type="text"
+                  name="name"
+                  required
+                  placeholder="Name*"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  className={styles.formInput}
+                />
+              </div>
+
+              <div className={styles.inputGroup}>
+                <input
+                  type="tel"
+                  name="phone"
+                  required
+                  placeholder="Phone Number*"
+                  value={formData.phone}
+                  onChange={handleInputChange}
+                  className={styles.formInput}
+                />
+              </div>
+
+              <div className={styles.checkboxGroup}>
+                <label className={styles.checkboxLabel}>
+                  <input
+                    type="checkbox"
+                    checked={authorized}
+                    onChange={(e) => setAuthorized(e.target.checked)}
+                    required
+                    className={styles.checkboxInput}
+                  />
+                  <span className={styles.checkboxText}>
+                    I authorize Suraksha representative to contact/WhatsApp me.
+                  </span>
+                </label>
+              </div>
+
+              <button
+                type="submit"
+                className={styles.submitButton}
+                disabled={isSubmitting}
+              >
+                <span>{isSubmitting ? 'Submitting...' : 'Submit'}</span>
+              </button>
+
+              {status && (
+                <p className={`${styles.statusText} ${status.includes('Failed') || status.includes('failed') ? styles.errorStatus : styles.successStatus}`}>
+                  {status}
+                </p>
+              )}
+            </form>
+          </div>
+        </div>
       </div>
 
       {/* Navigation & Trust Bar */}
