@@ -252,7 +252,7 @@ const Navbar = () => {
         <div className={styles.badgeContent}>
           <div className={styles.badgeStatus}>
             <span className={styles.badgeLiveDot}></span>
-            <span className={styles.badgeStatusText}>24/7 Live</span>
+            <span className={styles.badgeStatusText}>Talk to Us</span>
           </div>
           <div className={styles.badgeDivider}></div>
           <div className={styles.badgeCallInfo}>
