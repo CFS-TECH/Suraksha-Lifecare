@@ -102,11 +102,11 @@
 }
 
 .logoImage {
-  max-height: 100px; /* Adjusted to fit within the 88px wrapper height */
+  max-height: 75px;
   width: auto;
   object-fit: contain;
-  margin-top: 6px; /* Centered visually */
-  margin-bottom: -18px; /* Safe crop without cutting off the logo graphic */
+  margin-top: 4px;
+  margin-bottom: -12px;
   transition: all 0.3s ease;
 }
 
@@ -131,13 +131,13 @@
 }
 
 .headerScrolled .logoWrapper {
-  height: 62px;
+  height: 55px;
 }
 
 .headerScrolled .logoImage {
-  max-height: 72px;
-  margin-top: 5px;
-  margin-bottom: -15px;
+  max-height: 58px;
+  margin-top: 3px;
+  margin-bottom: -10px;
 }
 
 /* Location Selector Styles (Rounded Rectangle matching hero buttons) */
