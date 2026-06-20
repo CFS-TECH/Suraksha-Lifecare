@@ -12,7 +12,7 @@ const SplashScreen = ({ onComplete }) => {
         onComplete();
       }
       navigate('/');
-    }, 700); // 0.7 seconds total duration
+    }, 1000); // 1.0 second total duration
 
     return () => clearTimeout(completeTimer);
   }, [navigate, onComplete]);
@@ -38,8 +38,8 @@ const SplashScreen = ({ onComplete }) => {
             ]
           }}
           transition={{
-            opacity: { duration: 0.5, ease: "easeOut" },
-            scale: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+            opacity: { duration: 0.6, ease: "easeOut" },
+            scale: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
             filter: { repeat: Infinity, duration: 2.5, ease: "easeInOut" }
           }}
           className="relative mb-12 flex justify-center"
