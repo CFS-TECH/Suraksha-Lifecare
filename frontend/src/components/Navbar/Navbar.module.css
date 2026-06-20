@@ -108,6 +108,7 @@
   margin-top: 4px;
   margin-bottom: -12px;
   transition: all 0.3s ease;
+  filter: contrast(1.15) saturate(1.2);
 }
 
 .separator {
