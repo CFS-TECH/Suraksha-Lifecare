@@ -1,36 +1,27 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import logoImg from '../../assets/footerlogo.png';
 
 const SplashScreen = ({ onComplete }) => {
-  const [loadingText, setLoadingText] = useState("Caring for Your Health...");
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Transition elegant text quicker for 1.5s total duration
-    const textTimer = setTimeout(() => {
-      setLoadingText("Initializing Wellness...");
-    }, 700);
-
     const completeTimer = setTimeout(() => {
       if (onComplete) {
         onComplete();
       }
       navigate('/');
-    }, 1500); // 1.5 seconds total duration
+    }, 700); // 0.7 seconds total duration
 
-    return () => {
-      clearTimeout(textTimer);
-      clearTimeout(completeTimer);
-    };
+    return () => clearTimeout(completeTimer);
   }, [navigate, onComplete]);
 
   return (
     <motion.div
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.4, ease: [0.43, 0.13, 0.23, 0.96] }}
+      transition={{ duration: 0.3, ease: [0.43, 0.13, 0.23, 0.96] }}
       className="fixed inset-0 bg-[radial-gradient(circle_at_center,#163e5b_0%,#091b29_100%)] z-[999999] flex flex-col items-center justify-center overflow-hidden"
     >
       <div className="flex flex-col items-center justify-center max-w-md px-6 text-center">
@@ -47,8 +38,8 @@ const SplashScreen = ({ onComplete }) => {
             ]
           }}
           transition={{
-            opacity: { duration: 0.8, ease: "easeOut" },
-            scale: { duration: 1.0, ease: [0.16, 1, 0.3, 1] },
+            opacity: { duration: 0.5, ease: "easeOut" },
+            scale: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
             filter: { repeat: Infinity, duration: 2.5, ease: "easeInOut" }
           }}
           className="relative mb-12 flex justify-center"
@@ -77,14 +68,12 @@ const SplashScreen = ({ onComplete }) => {
 
         {/* Elegant typography loading text */}
         <motion.p
-          key={loadingText}
           initial={{ opacity: 0, y: 5 }}
           animate={{ opacity: 0.8, y: 0 }}
-          exit={{ opacity: 0, y: -5 }}
           transition={{ duration: 0.3 }}
           className="text-white text-xs font-semibold tracking-[0.25em] uppercase select-none font-sans"
         >
-          {loadingText}
+          Caring for Your Health...
         </motion.p>
       </div>
     </motion.div>
