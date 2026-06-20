@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
@@ -15,13 +16,33 @@ import HomeVisits from './pages/HomeVisits/HomeVisits';
 import RentEquipment from './pages/RentEquipment/RentEquipment';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import EnquiryPopup from './components/EnquiryPopup/EnquiryPopup';
+import { AnimatePresence } from 'framer-motion';
+import SplashScreen from './components/SplashScreen/SplashScreen';
 import './App.css';
 
 
+
 function App() {
+  const [showSplash, setShowSplash] = useState(false);
+
+  useEffect(() => {
+    const splashShown = sessionStorage.getItem('splashShown');
+    if (!splashShown) {
+      setShowSplash(true);
+    }
+  }, []);
+
+  const handleSplashComplete = () => {
+    setShowSplash(false);
+    sessionStorage.setItem('splashShown', 'true');
+  };
+
   return (
     <Router>
       <ScrollToTop />
+      <AnimatePresence mode="wait">
+        {showSplash && <SplashScreen onComplete={handleSplashComplete} />}
+      </AnimatePresence>
       <div className="app">
         <Navbar />
         <main className="main-content">
