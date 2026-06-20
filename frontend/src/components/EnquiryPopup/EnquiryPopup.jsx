@@ -6,7 +6,6 @@ import styles from './EnquiryPopup.module.css';
 const EnquiryPopup = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState({ name: '', phone: '' });
-  const [authorized, setAuthorized] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState('');
 
@@ -29,7 +28,7 @@ const EnquiryPopup = () => {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    if (!formData.name || !formData.phone || !authorized) return;
+    if (!formData.name || !formData.phone) return;
 
     setIsSubmitting(true);
     setStatus('');
@@ -55,9 +54,9 @@ const EnquiryPopup = () => {
         // Close the popup after a brief delay so they see the success message
         setTimeout(() => {
           setIsOpen(false);
-        }, 2000);
+        }, 1800);
       } else {
-        setStatus('Failed to submit enquiry. Please try again.');
+        setStatus('Failed to submit. Please try again.');
       }
     } catch (error) {
       console.warn('Enquiry submission failed.', error);
@@ -82,7 +81,7 @@ const EnquiryPopup = () => {
           onClick={() => setIsOpen(false)}
           aria-label="Close Enquiry Form"
         >
-          <X size={18} />
+          <X size={16} />
         </button>
 
         <h3 className={styles.formTitle}>Enquire Now</h3>
@@ -109,21 +108,6 @@ const EnquiryPopup = () => {
               onChange={handleInputChange}
               className={styles.formInput}
             />
-          </div>
-
-          <div className={styles.checkboxGroup}>
-            <label className={styles.checkboxLabel}>
-              <input
-                type="checkbox"
-                checked={authorized}
-                onChange={(e) => setAuthorized(e.target.checked)}
-                required
-                className={styles.checkboxInput}
-              />
-              <span className={styles.checkboxText}>
-                I authorize Suraksha representative to contact/WhatsApp me.
-              </span>
-            </label>
           </div>
 
           <button
