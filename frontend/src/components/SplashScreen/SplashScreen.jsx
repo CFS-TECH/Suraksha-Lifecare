@@ -8,17 +8,17 @@ const SplashScreen = ({ onComplete }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Transition elegant text
+    // Transition elegant text quicker for 1.5s total duration
     const textTimer = setTimeout(() => {
       setLoadingText("Initializing Wellness...");
-    }, 1200);
+    }, 700);
 
     const completeTimer = setTimeout(() => {
       if (onComplete) {
         onComplete();
       }
       navigate('/');
-    }, 2800); // 2.5 seconds active + 0.3 seconds fade-out transition buffer
+    }, 1500); // 1.5 seconds total duration
 
     return () => {
       clearTimeout(textTimer);
@@ -30,8 +30,8 @@ const SplashScreen = ({ onComplete }) => {
     <motion.div
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] }}
-      className="fixed inset-0 bg-black z-[999999] flex flex-col items-center justify-center overflow-hidden"
+      transition={{ duration: 0.4, ease: [0.43, 0.13, 0.23, 0.96] }}
+      className="fixed inset-0 bg-[radial-gradient(circle_at_center,#163e5b_0%,#091b29_100%)] z-[999999] flex flex-col items-center justify-center overflow-hidden"
     >
       <div className="flex flex-col items-center justify-center max-w-md px-6 text-center">
         {/* Animated White Logo Container */}
@@ -47,9 +47,9 @@ const SplashScreen = ({ onComplete }) => {
             ]
           }}
           transition={{
-            opacity: { duration: 1.2, ease: "easeOut" },
-            scale: { duration: 1.5, ease: [0.16, 1, 0.3, 1] },
-            filter: { repeat: Infinity, duration: 3, ease: "easeInOut" }
+            opacity: { duration: 0.8, ease: "easeOut" },
+            scale: { duration: 1.0, ease: [0.16, 1, 0.3, 1] },
+            filter: { repeat: Infinity, duration: 2.5, ease: "easeInOut" }
           }}
           className="relative mb-12 flex justify-center"
         >
@@ -70,7 +70,7 @@ const SplashScreen = ({ onComplete }) => {
           {/* Spinning segment */}
           <motion.div 
             animate={{ rotate: 360 }}
-            transition={{ repeat: Infinity, duration: 1.2, ease: "linear" }}
+            transition={{ repeat: Infinity, duration: 1.0, ease: "linear" }}
             className="absolute w-10 h-10 border-2 border-transparent border-t-white border-r-white/30 rounded-full"
           ></motion.div>
         </div>
@@ -81,7 +81,7 @@ const SplashScreen = ({ onComplete }) => {
           initial={{ opacity: 0, y: 5 }}
           animate={{ opacity: 0.8, y: 0 }}
           exit={{ opacity: 0, y: -5 }}
-          transition={{ duration: 0.4 }}
+          transition={{ duration: 0.3 }}
           className="text-white text-xs font-semibold tracking-[0.25em] uppercase select-none font-sans"
         >
           {loadingText}
