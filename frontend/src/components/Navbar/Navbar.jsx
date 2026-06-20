@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Phone, ChevronDown, MapPin, Search, HeartHandshake, Syringe, Users, Activity, Stethoscope, Monitor, FlaskConical, Baby, Menu, X, Clock } from 'lucide-react';
-import logoImage from '../../assets/lifecare logo.png';
+import logoImage from '../../assets/SurakshaHealthcare logo.png';
 import styles from './Navbar.module.css';
 
 const servicesList = [

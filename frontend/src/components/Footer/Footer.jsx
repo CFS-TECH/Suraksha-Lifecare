@@ -10,7 +10,7 @@ import {
   Clock,
   Award
 } from 'lucide-react';
-import logo from '../../assets/lifecare logo.png';
+import logo from '../../assets/SurakshaHealthcare logo.png';
 import styles from './Footer.module.css';
 
 const Footer = () => {
